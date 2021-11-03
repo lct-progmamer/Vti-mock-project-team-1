@@ -35,10 +35,11 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 		.authorizeRequests()
-		.antMatchers("/api/v1/login").anonymous()
-		.antMatchers("/api/v1/users/profile").authenticated()
-		.antMatchers("/api/v1/users/**").permitAll()
-		.anyRequest().authenticated()
+//		.antMatchers("/api/v1/login").anonymous()
+//		.antMatchers("/api/v1/users/profile").authenticated()
+//		.antMatchers("/api/v1/users/**").permitAll()
+//		.anyRequest().authenticated()
+		.anyRequest().permitAll()
 		.and()
 		.httpBasic()
 		.and()
