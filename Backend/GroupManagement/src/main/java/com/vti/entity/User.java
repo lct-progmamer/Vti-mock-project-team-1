@@ -1,6 +1,7 @@
 package com.vti.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Formula;
@@ -50,6 +52,13 @@ public class User implements Serializable {
 
 	@Column(name = "avatarUrl")
 	private String avatarUrl;
+	
+	
+	@OneToMany(mappedBy = "user")
+	private List<UserQuyenGop> cts;
+	
+	
+	
 
 	public User(String userName, String email, String password, String firstName, String lastName) {
 		this.userName = userName;
@@ -58,6 +67,9 @@ public class User implements Serializable {
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
+
+	
+	
 
 	public User() {
 	}
@@ -113,5 +125,23 @@ public class User implements Serializable {
 	public void setAvatarUrl(String avatarUrl) {
 		this.avatarUrl = avatarUrl;
 	}
+
+
+
+
+	public List<UserQuyenGop> getCts() {
+		return cts;
+	}
+
+
+
+
+	public void setCts(List<UserQuyenGop> cts) {
+		this.cts = cts;
+	}
+	
+	
+	
+	
 
 }
