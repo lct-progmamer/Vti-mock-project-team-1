@@ -136,17 +136,34 @@ const VectorMaps = async(() =>
 const GoogleMaps = async(() =>
     import ("../pages/maps/GoogleMaps"));
 
-// groups
-const Group = async(() =>
-    import ("../pages/group/Group"));
+// Chuong tỉnh quyen gop
+
+const CtQuyenGop = async(() =>
+    import ("../pages/Home/CtQuyenGop"));
+
+
 
 // Routes
 const landingRoutes = {
     path: "/",
     name: "Landing Page",
-    component: Landing,
+    // component: Landing,
+    component: CtQuyenGop,
     children: null
 };
+
+const HomeRoutes = {
+    path: "/CtQuyenGop",
+    name: "Home",
+    icon: ListIcon,
+    component: CtQuyenGop,
+    children: null
+}
+
+
+
+
+
 
 const dashboardRoutes = {
     path: "/dashboard",
@@ -159,12 +176,14 @@ const dashboardRoutes = {
     children: [{
             path: "/dashboard/default",
             name: "Default",
-            component: withAuth(Default)
+            // component: withAuth(Default)
+            component: Default
         },
         {
             path: "/dashboard/analytics",
             name: "Analytics",
-            component: withAuth(Analytics)
+            // component: withAuth(Analytics)
+            component: Analytics
         },
         {
             path: "/dashboard/e-commerce",
@@ -186,14 +205,6 @@ const dashboardRoutes = {
     ]
 };
 
-const groupRoutes = {
-    path: "/groups",
-    name: "Group Management",
-    icon: ListIcon,
-    // component: withAuth(Group),
-    component: Group,
-    children: null
-};
 
 const pageRoutes = {
     path: "/pages",
@@ -619,7 +630,7 @@ const SettingsRoutes = {
 // Dashboard specific routes
 export const dashboard = [
     dashboardRoutes,
-    groupRoutes,
+    HomeRoutes,
     pageRoutes,
     layoutRoutes,
     documentationRoutes,
@@ -636,6 +647,7 @@ export const dashboard = [
     privateRoutes,
     ProfileRoutes,
     SettingsRoutes
+
 ];
 
 // Landing specific routes
@@ -646,8 +658,8 @@ export const page = [authRoutes];
 
 // All routes
 export default [
+    HomeRoutes,
     dashboardRoutes,
-    groupRoutes,
     // pageRoutes,
     // authRoutes,
     // layoutRoutes,

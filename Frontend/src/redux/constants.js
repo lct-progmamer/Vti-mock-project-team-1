@@ -17,7 +17,3 @@ export const THEME_TOGGLE = "THEME_TOGGLE";
 // token & login
 export const TOKEN_INFO = "TOKEN_INFO";
 export const USER_LOGIN_INFO = "USER_LOGIN_INFO";
-
-// group
-export const GET_LIST_GROUP = "GET_LIST_GROUP";
-export const GET_LIST_GROUP_SELECTED_ROWS = "GET_LIST_GROUP_SELECTED_ROWS";

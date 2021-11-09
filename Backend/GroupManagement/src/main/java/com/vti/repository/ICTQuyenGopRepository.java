@@ -7,10 +7,8 @@ import com.vti.entity.CtQuyenGop;
 public interface ICTQuyenGopRepository extends JpaRepository<CtQuyenGop, Integer>{
 
 	
-//	public CtQuyenGop getctQuyenGopByName(String name);
+	public CtQuyenGop findCtQuyenGopByName(String name);
 	
-	
-	
-	
+	public boolean existsCtQuyenGopByName(String name);
 	
 }

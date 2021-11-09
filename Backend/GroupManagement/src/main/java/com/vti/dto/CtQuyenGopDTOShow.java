@@ -1,5 +1,6 @@
 package com.vti.dto;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -20,12 +21,8 @@ public class CtQuyenGopDTOShow {
 	
 	private float tinhTrang;
 	
-//	private List<String> image_Urls;
+	private List<ImageQuenGopDto> images;
 
-	
-	
-	
-	
 	
 	
 	
@@ -35,31 +32,15 @@ public class CtQuyenGopDTOShow {
 
 
 
-
-
-	
-
-
-
-
-
 	public CtQuyenGopDTOShow(String name, String discription, Date start, Date end, int tongTien, float tinhTrang) {
-	super();
-	this.name = name;
-	this.discription = discription;
-	this.start = start;
-	this.end = end;
-	this.tongTien = tongTien;
-	this.tinhTrang = tinhTrang;
-}
-
-
-
-
-
-
-
-
+		super();
+		this.name = name;
+		this.discription = discription;
+		this.start = start;
+		this.end = end;
+		this.tongTien = tongTien;
+		this.tinhTrang = tinhTrang;
+	}
 
 
 
@@ -115,14 +96,20 @@ public class CtQuyenGopDTOShow {
 		this.tinhTrang = tinhTrang;
 	}
 
-//	public List<String> getImage() {
-//		return image_Urls;
-//	}
-//
-//	public void setImage(List<String> image) {
-//		this.image_Urls = image;
-//	}
 	
+	
+	public List<ImageQuenGopDto> getImages() {
+		return images;
+	}
+
+
+
+	public void setImages(List<ImageQuenGopDto> images) {
+		this.images = images;
+	}
+
+
+
 	public static CtQuyenGopDTOShow convertToDto(CtQuyenGop ct) {
 		CtQuyenGopDTOShow dto = new CtQuyenGopDTOShow();
 		dto.setName(ct.getName());
@@ -131,6 +118,13 @@ public class CtQuyenGopDTOShow {
 		dto.setEnd(ct.getDate_End());
 		dto.setTongTien(ct.getTienQuyenGop());
 		dto.setTinhTrang(ct.getStatus());
+		List<ImageQuenGopDto> dtos = new ArrayList<ImageQuenGopDto>();
+		for (ImageQuyenGop img : ct.getImages()) {
+			ImageQuenGopDto dto1 = ImageQuenGopDto.convertToImageDto(img);
+			dtos.add(dto1);		
+		}
+		dto.setImages(dtos);
+		
 		return dto;
 	}
 	

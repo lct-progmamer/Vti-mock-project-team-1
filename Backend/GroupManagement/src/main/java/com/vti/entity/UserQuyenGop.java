@@ -7,28 +7,47 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
+import javax.persistence.Table;
 
 @Entity
-
+@Table(name = "USER_QUYEN_GOP" , catalog = "TestingSystem")
 public class UserQuyenGop {
 
 	
 	@EmbeddedId
 	UserQuyenGopKey id;
 	
+
 	@ManyToOne
-	@MapsId("ctQuyenGopId")
-	@JoinColumn(name = "ctQuyenGopId")
+	@MapsId("Id")
+	@JoinColumn(name = "Ct_quyen_gop_Id")
 	private CtQuyenGop ctQuyenGop;
 	
 	
 	@ManyToOne
-	@MapsId("userId")
-	@JoinColumn(name = "userId")
+	@MapsId("id")
+	@JoinColumn(name = "User_Id")
 	private User user;
 	
 	@Column(name = "Tien_quyen_gop" , nullable = false , columnDefinition = "int default 0")
 	private int tienQuyenGop;
+
+
+	
+	
+	
+	
+	public UserQuyenGop() {
+		super();
+	}
+
+
+	public UserQuyenGop(CtQuyenGop ctQuyenGop, User user, int tienQuyenGop) {
+		super();
+		this.ctQuyenGop = ctQuyenGop;
+		this.user = user;
+		this.tienQuyenGop = tienQuyenGop;
+	}
 
 
 	public UserQuyenGopKey getId() {
@@ -60,6 +79,13 @@ public class UserQuyenGop {
 		this.user = user;
 	}
 
+	public int getTienQuyenGop() {
+		return tienQuyenGop;
+	}
 
+
+	public void setTienQuyenGop(int tienQuyenGop) {
+		this.tienQuyenGop = tienQuyenGop;
+	}
 	
 }
