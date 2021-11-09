@@ -67,7 +67,9 @@ CREATE TABLE `USER_QUYEN_GOP`(
 		Ct_quyen_gop_Id  										SMALLINT UNSIGNED NOT NULL,
 		User_Id          										SMALLINT UNSIGNED NOT NULL,
 		Tien_quyen_gop 											INT UNSIGNED NOT NULL DEFAULT(0),
-		
+		`status`												enum('0' , '1') DEFAULT(0), -- 1 : DA CHUYEN , 0 : CHUA CHUYEN
+        
+        
 		FOREIGN KEY (Ct_quyen_gop_Id) REFERENCES CT_QUYEN_GOP(Id),
 		FOREIGN KEY (User_Id) REFERENCES `User`(id)
 		
@@ -150,8 +152,8 @@ VALUES ('https://static.mservice.io/blogscontents/momo-upload-api-210721141701-6
 
 
 
-INSERT INTO USER_QUYEN_GOP(Ct_quyen_gop_Id , User_Id , Tien_quyen_gop)
-VALUES (1,16,150000000);
+INSERT INTO USER_QUYEN_GOP(Ct_quyen_gop_Id , User_Id , Tien_quyen_gop , `status`)
+VALUES (1,16,150000000 , 1);
 
 
 				
