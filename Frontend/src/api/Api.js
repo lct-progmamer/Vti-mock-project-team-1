@@ -7,7 +7,7 @@ const axiosClient = axios.create({
     // responseType: 'json'
 });
 
-axiosClient.interceptors.request.use(async (config) => {
+axiosClient.interceptors.request.use(async(config) => {
     // Handle token here ...
     // if token exists then attach token
     const token = storage.getToken();
@@ -37,4 +37,3 @@ axiosClient.interceptors.response.use((response) => {
 });
 
 export default axiosClient;
-

@@ -1,44 +1,57 @@
-
+import {
+    Button,
+    Card,
+    CardBody,
+    Col,
+    Container,
+    Row,
+    Modal,
+    ModalBody,
+    ModalFooter,
+    ModalHeader,
+} from "reactstrap";
 import React from "react";
-import { useState , useEffect } from "react";
-import Axios from "axios";
+import { useState, useEffect } from "react";
 import "./CtQuyenGopCss.scss";
+import { useSelector, useDispatch } from 'react-redux';
+import ctQuyenGopApi from "../../api/ctQuyenGopApi";
+import { getAllCtQuyenGopSuccess, getAllCtQuyenGopFail } from "../../redux/actions/CtQuyenGopActions";
+import CtQuyenGopItem from "./CtQuyenGopItem";
 
-const CtQuyenGop = (props) => {
-    
+
+const CtQuyenGop = () => {
 
 
-    const [QuyenGop, setQuyenGop] = useState();
+
+    const dispatch = useDispatch();
+    const quyengops = useSelector(state => state.ctQuyenGop.ctQuyenGops);
+
 
     useEffect(() => {
-       Axios.get('http://localhost:8080/api/v1/ctquyengops')
-       .then((res) => {
-           setQuyenGop(res.data);
-           console.log(res.data);
-        })
-       .catch((res) => console.log(res));
+        ctQuyenGopApi.getAll()
+            .then(res => dispatch(getAllCtQuyenGopSuccess(res.data)))
+            .catch(res => dispatch(getAllCtQuyenGopFail("Some thing wrent wrong!!!")));
     }, [])
-    
-    
-    
+
+
+
+
     return (
-        
+
         <>
-            
-            <div className="container">
-                <div className="row"><img src="" alt="logo" /></div>
-               <div className="row">
+            <div className="row">
                 {
-                    QuyenGop?.map((items , index) => {
-                        return <div className="col-4 mb-5 " key={index}><img width="250" height="250"  src={items.images[0].url} alt="" /></div>
-                    }) 
+                    quyengops?.map(item => {
+                        return <CtQuyenGopItem name={item.name} discription={item.discription}
+                         images={item.images} tinhtrang={item.tinhTrang} key={item.id}/>
+                    })
                 }
-               </div>
-               <div className="row"></div>
             </div>
+            
         </>
-        
+
     );
 }
 
 export default CtQuyenGop;
+

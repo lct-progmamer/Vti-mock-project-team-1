@@ -141,7 +141,9 @@ const GoogleMaps = async(() =>
 const CtQuyenGop = async(() =>
     import ("../pages/Home/CtQuyenGop"));
 
-
+// const CtQuyenGopById = async (() => {
+//     import "../pages/Home/"
+// })
 
 // Routes
 const landingRoutes = {
