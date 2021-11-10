@@ -59,5 +59,5 @@ const deleteByIds = (ids) => {
 };
 
 // export
-const api = { getAll, existsByName, create, getById, update, deleteByIds }
+const api = { getAll, existsByName, create, getById, update, deleteByIds, url }
 export default api;

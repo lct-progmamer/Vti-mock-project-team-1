@@ -137,20 +137,19 @@ const GoogleMaps = async(() =>
     import ("../pages/maps/GoogleMaps"));
 
 // Chuong tỉnh quyen gop
-
 const CtQuyenGop = async(() =>
     import ("../pages/Home/CtQuyenGop"));
 
-// const CtQuyenGopById = async (() => {
-//     import "../pages/Home/"
-// })
+const CtQuyenGopDetail = async(() =>
+    import ("../pages/Home/CtQuyenGopDetail"));
 
 // Routes
 const landingRoutes = {
     path: "/",
     name: "Landing Page",
     // component: Landing,
-    component: CtQuyenGop,
+    // component: CtQuyenGop,
+    component: CtQuyenGopDetail,
     children: null
 };
 
@@ -159,7 +158,14 @@ const HomeRoutes = {
     name: "Home",
     icon: ListIcon,
     component: CtQuyenGop,
-    children: null
+    children: [{
+        path: "/CtQuyenGop/:id",
+        name: "CtQuyenGopDetail",
+        // component: withAuth(Default)
+        component: CtQuyenGopDetail
+    }]
+
+
 }
 
 

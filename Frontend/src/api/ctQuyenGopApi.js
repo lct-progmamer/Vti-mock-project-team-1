@@ -10,5 +10,5 @@ const getById = (Id) => {
     return Api.get(`${url}/${Id}`);
 }
 
-const api = { getAll, getById };
+const api = { getAll, getById, url };
 export default api;

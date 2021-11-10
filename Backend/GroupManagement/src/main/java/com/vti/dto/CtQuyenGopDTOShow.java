@@ -15,9 +15,9 @@ public class CtQuyenGopDTOShow {
 	
 	private String discription;
 	
-	private Date start;
+	private int dayStart , monthStart , yearStart;
 	
-	private Date end;
+	private int dayEnd , monthEnd , yearEnd;
 	
 	private int tongTien;
 	
@@ -33,20 +33,26 @@ public class CtQuyenGopDTOShow {
 	}
 
 
-
-	public CtQuyenGopDTOShow(int id ,String name, String discription, Date start, Date end, int tongTien, float tinhTrang) {
+	public CtQuyenGopDTOShow(String name, String discription, int dayStart, int monthStart, int yearStart, int dayEnd,
+			int monthEnd, int yearEnd, int tongTien, float tinhTrang, List<ImageQuenGopDto> images) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.discription = discription;
-		this.start = start;
-		this.end = end;
+		this.dayStart = dayStart;
+		this.monthStart = monthStart;
+		this.yearStart = yearStart;
+		this.dayEnd = dayEnd;
+		this.monthEnd = monthEnd;
+		this.yearEnd = yearEnd;
 		this.tongTien = tongTien;
 		this.tinhTrang = tinhTrang;
+		this.images = images;
 	}
 
-	
-	
+
+
+
+
 
 
 	public int getId() {
@@ -69,6 +75,66 @@ public class CtQuyenGopDTOShow {
 	
 	
 	
+	public int getDayEnd() {
+		return dayEnd;
+	}
+
+
+
+
+
+
+
+	public void setDayEnd(int dayEnd) {
+		this.dayEnd = dayEnd;
+	}
+
+
+
+
+
+
+
+	public int getMonthEnd() {
+		return monthEnd;
+	}
+
+
+
+
+
+
+
+	public void setMonthEnd(int monthEnd) {
+		this.monthEnd = monthEnd;
+	}
+
+
+
+
+
+
+
+	public int getYearEnd() {
+		return yearEnd;
+	}
+
+
+
+
+
+
+
+	public void setYearEnd(int yearEnd) {
+		this.yearEnd = yearEnd;
+	}
+
+
+
+
+
+
+
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -81,21 +147,62 @@ public class CtQuyenGopDTOShow {
 		this.discription = discription;
 	}
 
-	public Date getStart() {
-		return start;
+	
+	
+	public int getDayStart() {
+		return dayStart;
 	}
 
-	public void setStart(Date start) {
-		this.start = start;
+
+
+
+
+
+
+	public void setDayStart(int dayStart) {
+		this.dayStart = dayStart;
 	}
 
-	public Date getEnd() {
-		return end;
+
+
+
+
+
+
+	public int getMonthStart() {
+		return monthStart;
 	}
 
-	public void setEnd(Date end) {
-		this.end = end;
+
+
+
+
+
+
+	public void setMonthStart(int monthStart) {
+		this.monthStart = monthStart;
 	}
+
+
+
+
+
+
+
+	public int getYearStart() {
+		return yearStart;
+	}
+
+
+
+
+
+
+
+	public void setYearStart(int yearStart) {
+		this.yearStart = yearStart;
+	}
+
 
 	public int getTongTien() {
 		return tongTien;
@@ -126,14 +233,18 @@ public class CtQuyenGopDTOShow {
 	}
 
 
-
+	@Deprecated
 	public static CtQuyenGopDTOShow convertToDto(CtQuyenGop ct) {
 		CtQuyenGopDTOShow dto = new CtQuyenGopDTOShow();
 		dto.setId(ct.getId());
 		dto.setName(ct.getName());
 		dto.setDiscription(ct.getDescription());
-		dto.setStart(ct.getDate_Start());
-		dto.setEnd(ct.getDate_End());
+		dto.setDayStart(ct.getDate_Start().getDate());
+		dto.setMonthStart(1 + ct.getDate_Start().getMonth());
+		dto.setYearStart(1900 + ct.getDate_Start().getYear());
+		dto.setDayEnd(ct.getDate_End().getDate());
+		dto.setMonthEnd(1 + ct.getDate_End().getMonth());
+		dto.setYearEnd(1900 + ct.getDate_End().getYear());
 		dto.setTongTien(ct.getTienQuyenGop());
 		dto.setTinhTrang(ct.getStatus());
 		List<ImageQuenGopDto> dtos = new ArrayList<ImageQuenGopDto>();

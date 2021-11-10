@@ -63,6 +63,7 @@
         "react-datetime": "2.16.3",
         "react-dom": "16.13.1",
         "react-dragula": "1.1.17",
+        "react-elastic-carousel": "^0.11.5",
         "react-feather": "2.0.8",
         "react-input-mask": "2.0.4",
         "react-perfect-scrollbar": "1.5.8",
@@ -80,6 +81,7 @@
         "redux": "4.0.5",
         "sass": "^1.43.4",
         "smartwizard": "5.1.1",
+        "styled-components": "^5.3.3",
         "thunk": "0.0.1",
         "yup": "^0.32.8"
     },
