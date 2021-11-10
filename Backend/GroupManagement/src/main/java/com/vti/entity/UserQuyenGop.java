@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
@@ -32,8 +34,8 @@ public class UserQuyenGop {
 	@Column(name = "Tien_quyen_gop" , nullable = false , columnDefinition = "int default 0")
 	private int tienQuyenGop;
 
-
-	
+	@Enumerated(EnumType.ORDINAL)
+	private StatusUserQuyenGop status;
 	
 	
 	
@@ -41,13 +43,35 @@ public class UserQuyenGop {
 		super();
 	}
 
+	
 
-	public UserQuyenGop(CtQuyenGop ctQuyenGop, User user, int tienQuyenGop) {
+
+	public UserQuyenGop(CtQuyenGop ctQuyenGop, User user, int tienQuyenGop, StatusUserQuyenGop status) {
 		super();
 		this.ctQuyenGop = ctQuyenGop;
 		this.user = user;
 		this.tienQuyenGop = tienQuyenGop;
+		this.status = status;
 	}
+
+	
+	
+	
+
+
+
+	public StatusUserQuyenGop getStatus() {
+		return status;
+	}
+
+
+
+
+	public void setStatus(StatusUserQuyenGop status) {
+		this.status = status;
+	}
+
+
 
 
 	public UserQuyenGopKey getId() {

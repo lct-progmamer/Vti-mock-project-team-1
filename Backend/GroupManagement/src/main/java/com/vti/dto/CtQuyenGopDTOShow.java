@@ -9,6 +9,8 @@ import com.vti.entity.ImageQuyenGop;
 
 public class CtQuyenGopDTOShow {
 	
+	private int id;
+	
 	private String name;
 	
 	private String discription;
@@ -32,14 +34,30 @@ public class CtQuyenGopDTOShow {
 
 
 
-	public CtQuyenGopDTOShow(String name, String discription, Date start, Date end, int tongTien, float tinhTrang) {
+	public CtQuyenGopDTOShow(int id , String name, String discription, Date start, Date end, int tongTien, float tinhTrang) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.discription = discription;
 		this.start = start;
 		this.end = end;
 		this.tongTien = tongTien;
 		this.tinhTrang = tinhTrang;
+	}
+
+
+	
+	
+	
+
+	public int getId() {
+		return id;
+	}
+
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 
@@ -112,6 +130,7 @@ public class CtQuyenGopDTOShow {
 
 	public static CtQuyenGopDTOShow convertToDto(CtQuyenGop ct) {
 		CtQuyenGopDTOShow dto = new CtQuyenGopDTOShow();
+		dto.setId(ct.getId());
 		dto.setName(ct.getName());
 		dto.setDiscription(ct.getDescription());
 		dto.setStart(ct.getDate_Start());
