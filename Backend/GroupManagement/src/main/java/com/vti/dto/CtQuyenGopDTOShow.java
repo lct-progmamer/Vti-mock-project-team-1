@@ -34,7 +34,11 @@ public class CtQuyenGopDTOShow {
 
 
 
+<<<<<<< HEAD
 	public CtQuyenGopDTOShow(int id , String name, String discription, Date start, Date end, int tongTien, float tinhTrang) {
+=======
+	public CtQuyenGopDTOShow(int id ,String name, String discription, Date start, Date end, int tongTien, float tinhTrang) {
+>>>>>>> 9a4b3ca878e6a2c722c2dfe29a250f509636f128
 		super();
 		this.id = id;
 		this.name = name;
@@ -43,6 +47,20 @@ public class CtQuyenGopDTOShow {
 		this.end = end;
 		this.tongTien = tongTien;
 		this.tinhTrang = tinhTrang;
+	}
+
+	
+	
+
+
+	public int getId() {
+		return id;
+	}
+
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 

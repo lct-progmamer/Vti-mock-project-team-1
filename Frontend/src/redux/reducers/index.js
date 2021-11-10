@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-
+import ctQuyenGop from "./CtQuyenGopReducer";
 import sidebar from "./sidebarReducers";
 import layout from "./layoutReducer";
 import theme from "./themeReducer";
@@ -13,5 +13,6 @@ export default combineReducers({
     theme,
     toastr,
     UserLoginInfo,
+    ctQuyenGop
 
 });

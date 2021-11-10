@@ -1,6 +1,10 @@
 package com.vti.dto;
 
+<<<<<<< HEAD
 import com.vti.entity.StatusUserQuyenGop;
+=======
+import com.vti.entity.StatusChuyenTien;
+>>>>>>> 9a4b3ca878e6a2c722c2dfe29a250f509636f128
 import com.vti.entity.UserQuyenGop;
 
 public class UserQuyenGopDto {
@@ -17,7 +21,12 @@ public class UserQuyenGopDto {
 	
 	private int tienQuyenGop;
 	
+<<<<<<< HEAD
 	private StatusUserQuyenGop status;
+=======
+	private StatusChuyenTien status;
+	
+>>>>>>> 9a4b3ca878e6a2c722c2dfe29a250f509636f128
 	
 
 	public UserQuyenGopDto() {
@@ -31,8 +40,13 @@ public class UserQuyenGopDto {
 	
 
 
+<<<<<<< HEAD
 	public UserQuyenGopDto( String ctQuyenGopName, int ctQuyenGopTongTien, String userfullName, String userEmail,
 			int tienQuyenGop, StatusUserQuyenGop status) {
+=======
+	public UserQuyenGopDto(String ctQuyenGopName, int ctQuyenGopTongTien, String userfullName, String userEmail,
+			int tienQuyenGop, StatusChuyenTien status) {
+>>>>>>> 9a4b3ca878e6a2c722c2dfe29a250f509636f128
 		super();
 		this.ctQuyenGopName = ctQuyenGopName;
 		this.ctQuyenGopTongTien = ctQuyenGopTongTien;
@@ -42,6 +56,12 @@ public class UserQuyenGopDto {
 		this.status = status;
 	}
 
+<<<<<<< HEAD
+=======
+	
+
+
+>>>>>>> 9a4b3ca878e6a2c722c2dfe29a250f509636f128
 
 
 
@@ -68,7 +88,11 @@ public class UserQuyenGopDto {
 
 
 
+<<<<<<< HEAD
 	public StatusUserQuyenGop getStatus() {
+=======
+	public StatusChuyenTien getStatus() {
+>>>>>>> 9a4b3ca878e6a2c722c2dfe29a250f509636f128
 		return status;
 	}
 
@@ -79,7 +103,11 @@ public class UserQuyenGopDto {
 
 
 
+<<<<<<< HEAD
 	public void setStatus(StatusUserQuyenGop status) {
+=======
+	public void setStatus(StatusChuyenTien status) {
+>>>>>>> 9a4b3ca878e6a2c722c2dfe29a250f509636f128
 		this.status = status;
 	}
 

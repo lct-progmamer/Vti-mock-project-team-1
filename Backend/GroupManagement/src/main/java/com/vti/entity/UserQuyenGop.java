@@ -34,9 +34,16 @@ public class UserQuyenGop {
 	@Column(name = "Tien_quyen_gop" , nullable = false , columnDefinition = "int default 0")
 	private int tienQuyenGop;
 
+<<<<<<< HEAD
 	@Enumerated(EnumType.ORDINAL)
 	private StatusUserQuyenGop status;
 	
+=======
+
+	
+	@Enumerated(EnumType.ORDINAL)
+	private StatusChuyenTien status;
+>>>>>>> 9a4b3ca878e6a2c722c2dfe29a250f509636f128
 	
 	
 	public UserQuyenGop() {
@@ -45,13 +52,38 @@ public class UserQuyenGop {
 
 	
 
+<<<<<<< HEAD
 
 	public UserQuyenGop(CtQuyenGop ctQuyenGop, User user, int tienQuyenGop, StatusUserQuyenGop status) {
+=======
+	
+	
+	
+	
+	public UserQuyenGop(CtQuyenGop ctQuyenGop, User user, int tienQuyenGop, StatusChuyenTien status) {
+>>>>>>> 9a4b3ca878e6a2c722c2dfe29a250f509636f128
 		super();
 		this.ctQuyenGop = ctQuyenGop;
 		this.user = user;
 		this.tienQuyenGop = tienQuyenGop;
 		this.status = status;
+<<<<<<< HEAD
+=======
+	}
+
+
+
+
+
+
+	public StatusChuyenTien getStatus() {
+		return status;
+	}
+
+
+	public void setStatus(StatusChuyenTien status) {
+		this.status = status;
+>>>>>>> 9a4b3ca878e6a2c722c2dfe29a250f509636f128
 	}
 
 	
