@@ -45,3 +45,30 @@ fieldset {
     width: 200px;
     margin: 15px 0;
 }
+
+.tongTienDong {
+    margin: 20px 0;
+}
+
+.content-modal-QG {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.htQG img {
+    margin: 10px 80px 0 30px;
+    border: 2px solid grey;
+    border-radius: 10%;
+}
+
+#img-ht1:hover {
+    border: 5px solid green;
+}
+
+#img-ht2:hover {
+    border: 5px solid green;
+}
+
+#img-ht3:hover {
+    border: 5px solid green;
+}

@@ -17,17 +17,24 @@ import {
     ModalHeader,
 } from "reactstrap";
 
-
 const CtQuyenGopDetail = (props) => {
 
     const [QuyenGop, setQuyenGop] = useState({});
 
+    const [IsShow, setisShow] = useState(false);
+
+
     useEffect(() => {
-        axios.get(`${Api.url}/3`)
+        axios.get(`${Api.url}/1`)
             .then(res => setQuyenGop(res.data))
             .catch(res => console.log(res.data))
     }, [])
 
+
+
+    const OpenModalQyenGop = () =>{
+        setisShow(!IsShow);
+    }
 
 
     return (
@@ -52,8 +59,20 @@ const CtQuyenGopDetail = (props) => {
                 <Row className="storyTuThien">
                     <Col xs="7">
 
+                        <div>
+                            <h4>Tình trạng chương trình </h4>
+                            <div className="progress">
+                                <div className="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style={{ width: `${QuyenGop.tinhTrang}%` }}>{QuyenGop.tinhTrang}%</div>
+                            </div>
+                            <div className="tongTienDong">
+                                <h4>Số tiền quyên góp : {QuyenGop.tongTien} VND</h4>
+                            </div>
+                        </div>
+
+
+
                         <fieldset>
-                            <legend>Câu Chuyện : </legend>
+                            <h4><legend>Tóm Tắt Hoàn Cảnh : </legend></h4>
                             <p>{QuyenGop.discription}</p>
                         </fieldset>
 
@@ -62,15 +81,46 @@ const CtQuyenGopDetail = (props) => {
                         <div className="card-dongtien">
                             <h4 className="title_dongTien">Thực hiện Quyên Góp</h4>
                             <Button color="primary" className="button_dongTien">Hướng Dẫn Quyên Góp</Button>
-                            <Button color="success" className="button_dongTien">Quyên Góp Ngay</Button>
+                            <Button color="success" className="button_dongTien" onClick={() => OpenModalQyenGop()}>Quyên Góp Ngay</Button>
                         </div>
 
                         <div className="card-dongtien">
-                            
+
                         </div>
                     </Col>
                 </Row>
             </>
+            <Modal isOpen={IsShow} toggle={OpenModalQyenGop} size="lg">
+                <ModalHeader>Các Hình Thức Quyên Góp</ModalHeader>
+                <ModalBody>
+                    <div className="content-modal-QG">
+                        <div >
+                            <div className="htQG">
+                                <img id="img-ht1" height="150" width="250" src="https://poxi.vn/images/huong-dan/vnqrpay.jpg" alt="vnPay" />
+                            </div>
+                            <div className="htQG">
+                                <img id="img-ht2" height="150" width="250" src="http://getplugd.com/blog/content/images/2020/07/paypal.png" alt="paypal" />
+                            </div>
+                            <div className="htQG">
+                                <img id="img-ht3" height="150" width="250" src="https://lsvn.vn/uploads/files/1014/5ffe70974e2d2.jpg" alt="chuyenKhoan" />
+                            </div>
+                        </div>
+                        <span>
+                            <img id="banner-QG" src="https://file1.dangcongsan.vn/data/0/images/2021/01/21/phamthanh/1509-cd1b5663-f90f-466c-b191-c08d8c661187.jpg?dpi=150&quality=100&w=680" height="400" width="300" alt="banner" />
+                        </span>
+                    </div>
+                </ModalBody>
+                <ModalFooter>
+                    <Button color='secondary' onClick={OpenModalQyenGop}>Quay Lại</Button>
+                </ModalFooter>
+            </Modal>
+
+
+
+
+
+
+
 
         </>
 
