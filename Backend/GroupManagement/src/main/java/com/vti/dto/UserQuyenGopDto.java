@@ -1,5 +1,6 @@
 package com.vti.dto;
 
+import com.vti.entity.StatusChuyenTien;
 import com.vti.entity.UserQuyenGop;
 
 public class UserQuyenGopDto {
@@ -13,6 +14,10 @@ public class UserQuyenGopDto {
 	private String userEmail;
 	
 	private int tienQuyenGop;
+	
+	private StatusChuyenTien status;
+	
+	
 
 	public UserQuyenGopDto() {
 		super();
@@ -20,17 +25,71 @@ public class UserQuyenGopDto {
 
 	
 
-	public UserQuyenGopDto(String ctQuyenGopName, int ctQuyenGopTongTien, String userName, String userNameEmail,
-			int tienQuyenGop) {
+	
+	
+	
+
+
+	public UserQuyenGopDto(String ctQuyenGopName, int ctQuyenGopTongTien, String userfullName, String userEmail,
+			int tienQuyenGop, StatusChuyenTien status) {
 		super();
 		this.ctQuyenGopName = ctQuyenGopName;
 		this.ctQuyenGopTongTien = ctQuyenGopTongTien;
-		this.userfullName = userName;
-		this.userEmail = userNameEmail;
+		this.userfullName = userfullName;
+		this.userEmail = userEmail;
 		this.tienQuyenGop = tienQuyenGop;
+		this.status = status;
 	}
+
 	
-	
+
+
+
+
+
+
+	public String getUserfullName() {
+		return userfullName;
+	}
+
+
+
+
+
+
+
+
+	public void setUserfullName(String userfullName) {
+		this.userfullName = userfullName;
+	}
+
+
+
+
+
+
+
+
+	public StatusChuyenTien getStatus() {
+		return status;
+	}
+
+
+
+
+
+
+
+
+	public void setStatus(StatusChuyenTien status) {
+		this.status = status;
+	}
+
+
+
+
+
+
 
 
 	public String getCtQuyenGopName() {
@@ -96,6 +155,7 @@ public class UserQuyenGopDto {
 		dto.setUserEmail(us.getUser().getEmail());
 		dto.setCtQuyenGopTongTien(us.getCtQuyenGop().getTienQuyenGop());
 		dto.setCtQuyenGopName(us.getCtQuyenGop().getName());
+		dto.setStatus(us.getStatus());
 		return dto;
 	}
 	

@@ -17,3 +17,6 @@ export const THEME_TOGGLE = "THEME_TOGGLE";
 // token & login
 export const TOKEN_INFO = "TOKEN_INFO";
 export const USER_LOGIN_INFO = "USER_LOGIN_INFO";
+
+// ctquyengop
+export const GET_LIST_CTQUYENGOP = "GET_LIST_CTQUYENGOP";

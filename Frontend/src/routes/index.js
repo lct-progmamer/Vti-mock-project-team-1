@@ -17,7 +17,7 @@ import {
 } from "react-feather";
 
 // Landing
-import Landing from "../pages/landing/Landing";
+// import Landing from "../pages/landing/Landing";
 
 // Auth
 import SignIn from "../pages/auth/SignIn";
@@ -136,29 +136,43 @@ const VectorMaps = async(() =>
 const GoogleMaps = async(() =>
     import ("../pages/maps/GoogleMaps"));
 
-// Chuong tỉnh quyen gop
+// Chuong trinh quyen gop
 
-const CtQuyenGop = async(() =>
-    import ("../pages/Home/CtQuyenGop"));
+const HomePage = async(() =>
+    import ("../pages/Home/homepage/HomePage.jsx"));
 
-
+const ListCtQuyenGops = async(() =>
+    import ("../pages/Home/listctquyengop/ListCtQuyenGops"));    
 
 // Routes
 const landingRoutes = {
     path: "/",
     name: "Landing Page",
     // component: Landing,
-    component: CtQuyenGop,
+    component: HomePage,
     children: null
 };
 
 const HomeRoutes = {
-    path: "/CtQuyenGop",
+    path: "/home",
     name: "Home",
     icon: ListIcon,
-    component: CtQuyenGop,
-    children: null
+
+    children: [{
+        path: "/home/homepage",
+        name: "HomePage",
+        component: HomePage
+    },
+    {
+        path: "/home/listquyengop",
+        name: "ListCtQuyenGops",
+        component: ListCtQuyenGops
+    }
+]
 }
+
+
+
 
 
 
