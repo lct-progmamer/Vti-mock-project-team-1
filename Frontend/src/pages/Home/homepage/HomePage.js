@@ -43,6 +43,8 @@ const HomePage = (props) => {
                 <div className="row">
                     <h3 className="h3"> Các chương trình Quyên góp</h3>
                 </div>
+
+
                 <div className="row">
                     {
                         quyenGops?.map((items, index) =>
@@ -56,7 +58,6 @@ const HomePage = (props) => {
 
 
               
-
 
             </div>
         </>
