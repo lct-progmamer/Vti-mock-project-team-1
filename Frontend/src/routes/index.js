@@ -139,7 +139,7 @@ const GoogleMaps = async(() =>
 // Chuong trinh quyen gop
 
 const HomePage = async(() =>
-    import ("../pages/Home/homepage/HomePage.jsx"));
+    import ("../pages/Home/homepage/HomePage.js"));
 
 const ListCtQuyenGops = async(() =>
     import ("../pages/Home/listctquyengop/ListCtQuyenGops"));    
@@ -170,12 +170,6 @@ const HomeRoutes = {
     }
 ]
 }
-
-
-
-
-
-
 
 
 
