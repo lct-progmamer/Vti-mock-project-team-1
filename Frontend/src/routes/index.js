@@ -136,10 +136,6 @@ const VectorMaps = async(() =>
 const GoogleMaps = async(() =>
     import ("../pages/maps/GoogleMaps"));
 
-// Chuong tỉnh quyen gop
-const CtQuyenGop = async(() =>
-    import ("../pages/Home/CtQuyenGop"));
-
 const CtQuyenGopDetail = async(() =>
     import ("../pages/Home/CtQuyenGopDetail"));
 
@@ -153,20 +149,20 @@ const landingRoutes = {
     children: null
 };
 
-const HomeRoutes = {
-    path: "/CtQuyenGop",
-    name: "Home",
-    icon: ListIcon,
-    component: CtQuyenGop,
-    children: [{
-        path: "/CtQuyenGop/:id",
-        name: "CtQuyenGopDetail",
-        // component: withAuth(Default)
-        component: CtQuyenGopDetail
-    }]
+// const HomeRoutes = {
+//     path: "/CtQuyenGop",
+//     name: "Home",
+//     icon: ListIcon,
+//     component: CtQuyenGop,
+//     children: [{
+//         path: "/CtQuyenGop/:id",
+//         name: "CtQuyenGopDetail",
+//         // component: withAuth(Default)
+//         component: CtQuyenGopDetail
+//     }]
 
 
-}
+// }
 
 
 
@@ -638,7 +634,7 @@ const SettingsRoutes = {
 // Dashboard specific routes
 export const dashboard = [
     dashboardRoutes,
-    HomeRoutes,
+    // HomeRoutes,
     pageRoutes,
     layoutRoutes,
     documentationRoutes,
@@ -666,7 +662,7 @@ export const page = [authRoutes];
 
 // All routes
 export default [
-    HomeRoutes,
+    // HomeRoutes,
     dashboardRoutes,
     // pageRoutes,
     // authRoutes,

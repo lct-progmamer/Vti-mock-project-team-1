@@ -12,7 +12,7 @@ import AuthLayout from "../layouts/Auth";
 import Page404 from "../pages/auth/Page404";
 
 import ScrollToTop from "../components/ScrollToTop";
-import CtQuyenGop from "../pages/Home/CtQuyenGop";
+
 
 const childRoutes = (Layout, routes) =>
   routes.map(({ children, path, component: Component }, index) =>

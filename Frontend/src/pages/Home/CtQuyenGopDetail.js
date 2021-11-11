@@ -3,6 +3,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Api from "../../api/ctQuyenGopApi";
 import Carousel from "react-elastic-carousel";
+
+
+
 import "./CtQuyenGopCss.scss";
 import {
     Button,
@@ -114,14 +117,6 @@ const CtQuyenGopDetail = (props) => {
                     <Button color='secondary' onClick={OpenModalQyenGop}>Quay Lại</Button>
                 </ModalFooter>
             </Modal>
-
-
-
-
-
-
-
-
         </>
 
 
