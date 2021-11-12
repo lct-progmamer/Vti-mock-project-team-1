@@ -9,10 +9,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vti.dto.CtQuyenGopDTOShow;
+import com.vti.dto.CtQuyenGopDtoCreate;
 import com.vti.entity.CtQuyenGop;
 import com.vti.service.ICtQuyenGopService;
 
@@ -50,5 +53,16 @@ public class CtQuyenGopController {
 		CtQuyenGopDTOShow dto = CtQuyenGopDTOShow.convertToDto(quyengop);
 		return new ResponseEntity<CtQuyenGopDTOShow>(dto , HttpStatus.OK);
 	}
+
+	@PostMapping()
+	public ResponseEntity<?> createCtQuyenGop(@RequestBody CtQuyenGopDtoCreate dto){
+		
+		CtQuyenGop ct = dto.toCtQuyenGop();
+		
+		service.createQuyenGop(ct);
+		
+		return new ResponseEntity<CtQuyenGop>(ct, HttpStatus.CREATED);
+	}
+	
 	
 }

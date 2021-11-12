@@ -139,13 +139,16 @@ const GoogleMaps = async(() =>
 const CtQuyenGopDetail = async(() =>
     import ("../pages/Home/CtQuyenGopDetail"));
 
+const QGbyChuyenKhoan = async (()=>
+ import ("../pages/Home/QGbyChuyenKhoan"));
+
 // Routes
 const landingRoutes = {
     path: "/",
     name: "Landing Page",
     // component: Landing,
     // component: CtQuyenGop,
-    component: CtQuyenGopDetail,
+    component: QGbyChuyenKhoan,
     children: null
 };
 
@@ -154,12 +157,22 @@ const landingRoutes = {
 //     name: "Home",
 //     icon: ListIcon,
 //     component: CtQuyenGop,
-//     children: [{
+//     children: [
+//     {
 //         path: "/CtQuyenGop/:id",
 //         name: "CtQuyenGopDetail",
 //         // component: withAuth(Default)
-//         component: CtQuyenGopDetail
-//     }]
+//         component: CtQuyenGopDetail,
+//         children: [
+//             {
+//                 path: "/CtQuyenGop/:id/byChuyenKhoan",
+//                 name: "byChuyenKhoan",
+//                 component: QGbyChuyenKhoan
+//             }
+//         ]
+//     }
+
+// ]
 
 
 // }

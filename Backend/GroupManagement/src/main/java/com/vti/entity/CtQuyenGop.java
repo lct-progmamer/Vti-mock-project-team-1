@@ -61,6 +61,22 @@ public class CtQuyenGop implements Serializable{
 
 
 	
+	
+	
+	
+	
+
+	public CtQuyenGop( String name, String description, Date date_Start, Date date_End, int tienQuyenGop,
+			float status, List<ImageQuyenGop> images) {
+		super();
+		this.name = name;
+		this.description = description;
+		Date_Start = date_Start;
+		Date_End = date_End;
+		this.tienQuyenGop = tienQuyenGop;
+		this.status = status;
+		this.images = images;
+	}
 
 	public CtQuyenGop() {
 		super();

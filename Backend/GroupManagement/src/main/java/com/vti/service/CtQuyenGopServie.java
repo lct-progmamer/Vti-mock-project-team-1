@@ -49,5 +49,11 @@ public class CtQuyenGopServie implements ICtQuyenGopService{
 		return repository.existsCtQuyenGopByName(name);
 	}
 
+
+	@Override
+	public void createQuyenGop(CtQuyenGop ct) {
+		repository.save(ct);
+	}
+
 	
 }

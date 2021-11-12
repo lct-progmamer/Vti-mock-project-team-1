@@ -15,5 +15,9 @@ public interface ICtQuyenGopService {
 	public boolean existsCtQuyenGopById(int id);
 	
 	public boolean existsCtQuyenGopByName(String name);
+	
+	public void createQuyenGop(CtQuyenGop ct);
+	
+	
 
 }

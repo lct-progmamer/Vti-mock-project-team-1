@@ -4,7 +4,7 @@ import com.vti.entity.ImageQuyenGop;
 
 public class ImageQuenGopDto {
 
-	private String url;
+	private String name;
 	
 	private String discriptions;
 
@@ -14,18 +14,24 @@ public class ImageQuenGopDto {
 		super();
 	}
 
-	public ImageQuenGopDto(String url, String discriptions) {
+	
+	
+
+	public ImageQuenGopDto(String name, String discriptions) {
 		super();
-		this.url = url;
+		this.name = name;
 		this.discriptions = discriptions;
 	}
 
-	public String getUrl() {
-		return url;
+
+
+
+	public String getName() {
+		return name;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getDiscriptions() {
@@ -38,7 +44,7 @@ public class ImageQuenGopDto {
 	
 	public static ImageQuenGopDto convertToImageDto(ImageQuyenGop img) {
 		ImageQuenGopDto dto = new ImageQuenGopDto();
-		dto.setUrl(img.getImageUrl());
+		dto.setName(img.getName());
 		dto.setDiscriptions(img.getDiscriptionImage());
 		return dto;
 	}

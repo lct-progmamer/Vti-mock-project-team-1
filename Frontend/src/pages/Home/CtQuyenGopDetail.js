@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Api from "../../api/ctQuyenGopApi";
 import Carousel from "react-elastic-carousel";
-
+import {Link} from "react-router-dom";
 
 
 import "./CtQuyenGopCss.scss";
@@ -105,7 +105,7 @@ const CtQuyenGopDetail = (props) => {
                                 <img id="img-ht2" height="150" width="250" src="http://getplugd.com/blog/content/images/2020/07/paypal.png" alt="paypal" />
                             </div>
                             <div className="htQG">
-                                <img id="img-ht3" height="150" width="250" src="https://lsvn.vn/uploads/files/1014/5ffe70974e2d2.jpg" alt="chuyenKhoan" />
+                                <Link to="/byChuyenKhoan"><img id="img-ht3" height="150" width="250" src="https://lsvn.vn/uploads/files/1014/5ffe70974e2d2.jpg" alt="chuyenKhoan" /></Link>
                             </div>
                         </div>
                         <span>

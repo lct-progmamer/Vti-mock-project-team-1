@@ -40,22 +40,22 @@ CREATE TABLE IF NOT EXISTS `Reset_Password_Token` (
 DROP TABLE IF EXISTS `CT_QUYEN_GOP`;
 CREATE TABLE `CT_QUYEN_GOP`(
 
-	Id  					  											SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	Ct_name     	  											VARCHAR(255) UNIQUE KEY  NOT NULL,
+	Id  					  							SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	Ct_name     	  									VARCHAR(255) UNIQUE KEY  NOT NULL,
 	Discription_Quyen_gop   							VARCHAR(2000) NOT NULL,
-	Date_Start     												DATETIME DEFAULT(NOW()),
-	Date_End        											DATETIME DEFAULT(NOW()),
-	Tong_tien_quyen_gop										INT UNSIGNED NOT NULL DEFAULT(100000),
-	`Status`                   						FLOAT UNSIGNED DEFAULT(0)
+	Date_Start     										DATETIME DEFAULT(NOW()),
+	Date_End        									DATETIME DEFAULT(NOW()),
+	Tong_tien_quyen_gop									INT UNSIGNED NOT NULL DEFAULT(100000),
+	`Status`                   							FLOAT UNSIGNED DEFAULT(0)
 );
 
 DROP TABLE IF EXISTS `IMAGE_QUYEN_GOP`;
 CREATE TABLE `IMAGE_QUYEN_GOP`(
 
-	Id 																		SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	Image_url					 		       					VARCHAR(255) UNIQUE KEY NOT NULL,
+	Id 														SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	`name`					 		       				VARCHAR(255) UNIQUE KEY NOT NULL,
 	Discription_Image   									VARCHAR(800) NOT NULL,
-	Ct_quyen_gop_Id  											SMALLINT UNSIGNED  NOT NULL,
+	Ct_quyen_gop_Id  										SMALLINT UNSIGNED  NOT NULL,
 	
 	FOREIGN KEY (Ct_quyen_gop_Id) REFERENCES CT_QUYEN_GOP(Id)
 
@@ -68,8 +68,7 @@ CREATE TABLE `USER_QUYEN_GOP`(
 		User_Id          										SMALLINT UNSIGNED NOT NULL,
 		Tien_quyen_gop 											INT UNSIGNED NOT NULL DEFAULT(0),
 		`status`												enum('0' , '1') DEFAULT(0), -- 1 : DA CHUYEN , 0 : CHUA CHUYEN
-        
-        
+
 		FOREIGN KEY (Ct_quyen_gop_Id) REFERENCES CT_QUYEN_GOP(Id),
 		FOREIGN KEY (User_Id) REFERENCES `User`(id)
 		
@@ -128,8 +127,8 @@ Phía sau con số tưởng như tròn trịa ấy là bao giọt nước mắt 
 
 
 
-INSERT INTO image_quyen_gop(Image_url , Discription_Image , Ct_quyen_gop_Id)
-VALUES ('https://static.mservice.io/blogscontents/momo-upload-api-210721141701-637624738210154959.jpg','Vaccine là biện pháp hữu hiệu nhất để bảo vệ tính mạng của người dân và đưa cuộc sống trở lại bình thường',1) ,
+INSERT INTO image_quyen_gop(`name`	 , Discription_Image , Ct_quyen_gop_Id)
+VALUES ('1636727148450.jpeg','Vaccine là biện pháp hữu hiệu nhất để bảo vệ tính mạng của người dân và đưa cuộc sống trở lại bình thường',1) ,
 ('https://static.mservice.io/blogscontents/momo-upload-api-210625182125-637602420857550435.jpg','Sự chung tay từ cộng đồng các nhà hảo tâm sẽ là đóng góp to lớn để giúp đất nước chiến thắng đại dịch',1),
 ('https://static.mservice.io/blogscontents/momo-upload-api-210721142144-637624741042118090.jpg' ,
 'Sự chung tay từ cộng đồng các nhà hảo tâm sẽ là đóng góp to lớn để giúp đất nước chiến thắng đại dịch' , 1),
