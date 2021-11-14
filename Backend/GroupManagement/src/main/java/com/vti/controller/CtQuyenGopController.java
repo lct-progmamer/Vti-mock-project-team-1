@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.vti.dto.CtQuyenGopDTOShow;
 import com.vti.dto.CtQuyenGopDtoCreate;
+import com.vti.dto.filter.Parameters;
 import com.vti.entity.CtQuyenGop;
 import com.vti.service.ICtQuyenGopService;
 
@@ -28,9 +29,9 @@ public class CtQuyenGopController {
 	private ICtQuyenGopService service;
 	
 	@GetMapping()
-	public ResponseEntity<?> getAllCtQuyenGops(){
+	public ResponseEntity<?> getAllCtQuyenGops(Parameters parameters){
 		
-		List<CtQuyenGop> quyengops = service.getAllCtQuyenGops();
+		List<CtQuyenGop> quyengops = service.getAllCtQuyenGops( parameters);
 		List<CtQuyenGopDTOShow> quyengopshows = new ArrayList<>();
 		for(CtQuyenGop ctQuyenGop : quyengops) {
 			CtQuyenGopDTOShow dtoShow = CtQuyenGopDTOShow.convertToDto(ctQuyenGop);

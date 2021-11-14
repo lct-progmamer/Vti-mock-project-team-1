@@ -28,7 +28,7 @@ public class CtQuyenGop implements Serializable{
 	@javax.persistence.Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "Id")	
-	private int Id;
+	private int id;
 	
 	
 	@Column(name = "Ct_name" , length = 255 , unique = true , nullable = false)
@@ -83,11 +83,11 @@ public class CtQuyenGop implements Serializable{
 	}
 
 	public int getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(int id) {
-		Id = id;
+		id = id;
 	}
 
 	public String getName() {
