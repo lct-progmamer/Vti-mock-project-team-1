@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const QuyenGops = () => {
     return(
         <>
-            <Link to="/CtQuyenGop/3"><p>hello</p></Link>
+            <Link to="/ctquyengops/3"><p>hello</p></Link>
         </>
     );
 }

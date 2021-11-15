@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.vti.entity.CtQuyenGop;
 import com.vti.entity.ImageQuyenGop;
+import com.vti.entity.nganHangTuThien;
 
 public class CtQuyenGopDTOShow {
 	
@@ -25,7 +26,7 @@ public class CtQuyenGopDTOShow {
 	
 	private List<ImageQuenGopDto> images;
 
-	
+	private List<nganHangTuThienDto> nganHangs;
 	
 	
 	public CtQuyenGopDTOShow() {
@@ -33,9 +34,11 @@ public class CtQuyenGopDTOShow {
 	}
 
 
-	public CtQuyenGopDTOShow(String name, String discription, int dayStart, int monthStart, int yearStart, int dayEnd,
-			int monthEnd, int yearEnd, int tongTien, float tinhTrang, List<ImageQuenGopDto> images) {
+	public CtQuyenGopDTOShow(int id, String name, String discription, int dayStart, int monthStart, int yearStart,
+			int dayEnd, int monthEnd, int yearEnd, int tongTien, float tinhTrang, List<ImageQuenGopDto> images,
+			List<nganHangTuThienDto> nganHangs) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.discription = discription;
 		this.dayStart = dayStart;
@@ -47,18 +50,13 @@ public class CtQuyenGopDTOShow {
 		this.tongTien = tongTien;
 		this.tinhTrang = tinhTrang;
 		this.images = images;
+		this.nganHangs = nganHangs;
 	}
-
-
-
-
-
 
 
 	public int getId() {
 		return id;
 	}
-
 
 
 	public void setId(int id) {
@@ -72,17 +70,11 @@ public class CtQuyenGopDTOShow {
 	}
 
 	
-	
-	
+
 	
 	public int getDayEnd() {
 		return dayEnd;
 	}
-
-
-
-
-
 
 
 	public void setDayEnd(int dayEnd) {
@@ -90,29 +82,14 @@ public class CtQuyenGopDTOShow {
 	}
 
 
-
-
-
-
-
 	public int getMonthEnd() {
 		return monthEnd;
 	}
 
 
-
-
-
-
-
 	public void setMonthEnd(int monthEnd) {
 		this.monthEnd = monthEnd;
 	}
-
-
-
-
-
 
 
 	public int getYearEnd() {
@@ -121,18 +98,9 @@ public class CtQuyenGopDTOShow {
 
 
 
-
-
-
-
 	public void setYearEnd(int yearEnd) {
 		this.yearEnd = yearEnd;
 	}
-
-
-
-
-
 
 
 	public void setName(String name) {
@@ -155,16 +123,9 @@ public class CtQuyenGopDTOShow {
 
 
 
-
-
-
-
 	public void setDayStart(int dayStart) {
 		this.dayStart = dayStart;
 	}
-
-
-
 
 
 
@@ -176,27 +137,14 @@ public class CtQuyenGopDTOShow {
 
 
 
-
-
-
 	public void setMonthStart(int monthStart) {
 		this.monthStart = monthStart;
 	}
 
 
-
-
-
-
-
 	public int getYearStart() {
 		return yearStart;
 	}
-
-
-
-
-
 
 
 	public void setYearStart(int yearStart) {
@@ -232,8 +180,21 @@ public class CtQuyenGopDTOShow {
 		this.images = images;
 	}
 
+	
 
-	@Deprecated
+	public List<nganHangTuThienDto> getNganHangs() {
+		return nganHangs;
+	}
+
+
+
+	public void setNganHangs(List<nganHangTuThienDto> nganHangs) {
+		this.nganHangs = nganHangs;
+	}
+
+
+
+
 	public static CtQuyenGopDTOShow convertToDto(CtQuyenGop ct) {
 		CtQuyenGopDTOShow dto = new CtQuyenGopDTOShow();
 		dto.setId(ct.getId());
@@ -253,6 +214,14 @@ public class CtQuyenGopDTOShow {
 			dtos.add(dto1);		
 		}
 		dto.setImages(dtos);
+		List<nganHangTuThienDto> nganhangs = new ArrayList<nganHangTuThienDto>();
+		for (nganHangTuThien nganhang : ct.getNganHangs()) {
+			nganHangTuThienDto dto1 = nganHangTuThienDto.convertToDto(nganhang);
+			nganhangs.add(dto1);
+		}
+		dto.setNganHangs(nganhangs);
+		
+		
 		
 		return dto;
 	}

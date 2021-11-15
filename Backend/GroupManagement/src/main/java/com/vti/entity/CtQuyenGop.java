@@ -59,15 +59,14 @@ public class CtQuyenGop implements Serializable{
 	private List<UserQuyenGop> ctrinhs;
 	
 
+	@OneToMany(mappedBy = "quyenGop")
+	private List<nganHangTuThien> nganHangs;
+	
+	
+	
 
-	
-	
-	
-	
-	
-
-	public CtQuyenGop( String name, String description, Date date_Start, Date date_End, int tienQuyenGop,
-			float status, List<ImageQuyenGop> images) {
+	public CtQuyenGop(String name, String description, Date date_Start, Date date_End, int tienQuyenGop, float status,
+			List<ImageQuyenGop> images, List<UserQuyenGop> ctrinhs, List<nganHangTuThien> nganHangs) {
 		super();
 		this.name = name;
 		this.description = description;
@@ -76,6 +75,8 @@ public class CtQuyenGop implements Serializable{
 		this.tienQuyenGop = tienQuyenGop;
 		this.status = status;
 		this.images = images;
+		this.ctrinhs = ctrinhs;
+		this.nganHangs = nganHangs;
 	}
 
 	public CtQuyenGop() {
@@ -131,11 +132,6 @@ public class CtQuyenGop implements Serializable{
 	}
 
 	
-
-	
-
-	
-	
 	
 	public float getStatus() {
 		return status;
@@ -161,12 +157,13 @@ public class CtQuyenGop implements Serializable{
 		this.images = images;
 	}
 
-	
+	public List<nganHangTuThien> getNganHangs() {
+		return nganHangs;
+	}
 
-	
-	
-	
-	
-	
+	public void setNganHangs(List<nganHangTuThien> nganHangs) {
+		this.nganHangs = nganHangs;
+	}
+
 	
 }

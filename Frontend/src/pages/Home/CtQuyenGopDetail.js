@@ -19,6 +19,7 @@ import {
     ModalFooter,
     ModalHeader,
 } from "reactstrap";
+import api from "../../api/ctQuyenGopApi";
 
 const CtQuyenGopDetail = () => {
 
@@ -28,6 +29,7 @@ const CtQuyenGopDetail = () => {
     let {id} = useParams();
 
     useEffect(() => {
+
         axios.get(`${Api.url}/${id}`)
             .then(res => setQuyenGop(res.data))
             .catch(res => console.log(res.data))
@@ -53,8 +55,9 @@ const CtQuyenGopDetail = () => {
             <Carousel>
                 {
                     QuyenGop.images?.map((img, index) => {
-                        return <img src={img.url} alt="1" className="img" key={index} />
+                        return <img src={img.name} alt="1" className="img" key={index} />
                     })
+
                 }
             </Carousel>
             <hr />
@@ -105,7 +108,7 @@ const CtQuyenGopDetail = () => {
                                 <img id="img-ht2" height="150" width="250" src="http://getplugd.com/blog/content/images/2020/07/paypal.png" alt="paypal" />
                             </div>
                             <div className="htQG">
-                                <Link to="/byChuyenKhoan"><img id="img-ht3" height="150" width="250" src="https://lsvn.vn/uploads/files/1014/5ffe70974e2d2.jpg" alt="chuyenKhoan" /></Link>
+                                <Link to={`/${QuyenGop.id}/byChuyenKhoan`}><img id="img-ht3" height="150" width="250" src="https://lsvn.vn/uploads/files/1014/5ffe70974e2d2.jpg" alt="chuyenKhoan" /></Link>
                             </div>
                         </div>
                         <span>

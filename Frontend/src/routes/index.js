@@ -157,18 +157,18 @@ const landingRoutes = {
 };
 
 const HomeRoutes = {
-    path: "/",
+    path: "/ctquyengops",
     name: "Home",
     icon: ListIcon,
     component: quyenGops,
     children: [
     {
-        path: "/CtQuyenGop/:id",
+        path: "/ctquyengops/:id",
         name: "CtQuyenGopDetail",
         component: CtQuyenGopDetail,
         children: [
             {
-                path: "/CtQuyenGop/:id/byChuyenKhoan",
+                path: "/ctquyengops/:id/byChuyenKhoan",
                 name: "byChuyenKhoan",
                 component: QGbyChuyenKhoan
                 

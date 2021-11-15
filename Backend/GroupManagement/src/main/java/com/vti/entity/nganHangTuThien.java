@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -32,12 +34,18 @@ public class nganHangTuThien implements Serializable{
 	
 	@Column(name = "so_tk" , length = 50 , nullable = false , unique = true)
 	private String so_tk;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_quyen_gop" , nullable = false)
+	private CtQuyenGop quyenGop;
 
-	public nganHangTuThien(String name, String image_bank, String so_tk) {
+	public nganHangTuThien(int id, String name, String image_bank, String so_tk, CtQuyenGop quyenGop) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.image_bank = image_bank;
 		this.so_tk = so_tk;
+		this.quyenGop = quyenGop;
 	}
 
 	public nganHangTuThien() {
@@ -75,5 +83,15 @@ public class nganHangTuThien implements Serializable{
 	public void setSo_tk(String so_tk) {
 		this.so_tk = so_tk;
 	}
+
+	public CtQuyenGop getQuyenGop() {
+		return quyenGop;
+	}
+
+	public void setQuyenGop(CtQuyenGop quyenGop) {
+		this.quyenGop = quyenGop;
+	}
+	
+	
 	
 }
