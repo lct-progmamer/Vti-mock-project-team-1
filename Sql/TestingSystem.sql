@@ -53,7 +53,7 @@ DROP TABLE IF EXISTS `IMAGE_QUYEN_GOP`;
 CREATE TABLE `IMAGE_QUYEN_GOP`(
 
 	Id 														SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	`name`					 		       				VARCHAR(255) UNIQUE KEY NOT NULL,
+	`name`					 		       				VARCHAR(500) UNIQUE KEY NOT NULL,
 	Discription_Image   									VARCHAR(800) NOT NULL,
 	Ct_quyen_gop_Id  										SMALLINT UNSIGNED  NOT NULL,
 	
@@ -73,6 +73,16 @@ CREATE TABLE `USER_QUYEN_GOP`(
 		FOREIGN KEY (User_Id) REFERENCES `User`(id)
 		
 );
+
+DROP TABLE IF EXISTS `NGAN_HANG_TU_THIEN`;
+CREATE TABLE `NGAN_HANG_TU_THIEN`(
+	id						SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    `name`					VARCHAR(250) UNIQUE KEY NOT NULL,
+	image_bank				VARCHAR(500),
+    so_tk					VARCHAR(50) UNIQUE KEY NOT NULL
+				
+);
+
 
 
 -- password: 123456
@@ -155,6 +165,13 @@ INSERT INTO USER_QUYEN_GOP(Ct_quyen_gop_Id , User_Id , Tien_quyen_gop , `status`
 VALUES (1,16,150000000 , 1);
 
 
+INSERT INTO `NGAN_HANG_TU_THIEN`(`name` , image_bank , so_tk)
+VALUES ('Agribank' , '' , '00000000001'),
+		('TechComBank' ,'', '00000000002'),
+        ('VietCombank' ,'', '00000000003'),
+        ('MB Bank' , '' , '00000000004'),
+        ('VietTinBank' , '' , '00000000005');
+        
 				
 												
 												

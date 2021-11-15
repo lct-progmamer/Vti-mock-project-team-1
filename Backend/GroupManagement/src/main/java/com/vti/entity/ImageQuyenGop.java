@@ -31,7 +31,7 @@ public class ImageQuyenGop implements Serializable{
 	private int Id;
 	
 	
-	@Column(name = "name" , length = 255 , unique = false , nullable = false)
+	@Column(name = "name" , length = 500 , unique = false , nullable = false)
 	private String name;
 
 	@Column(name = "Discription_Image", length = 800 , nullable = false)

@@ -1,11 +1,16 @@
 import React from "react";
+import Carousel from "react-elastic-carousel";
 
-
-const QGbyChuyenKhoan = () => {
+const QGbyChuyenKhoan = ({name}) => {
     return(
 
         <>
-            <p>hello</p>
+            <h2>{name}</h2>
+            <h4>
+                Lựa Chọn Ngân Hàng
+            </h4>
+           
+            
         </>
 
 

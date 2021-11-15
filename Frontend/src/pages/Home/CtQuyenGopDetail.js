@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Api from "../../api/ctQuyenGopApi";
 import Carousel from "react-elastic-carousel";
-import {Link} from "react-router-dom";
+import {Link , useParams} from "react-router-dom";
 
 
 import "./CtQuyenGopCss.scss";
@@ -20,15 +20,15 @@ import {
     ModalHeader,
 } from "reactstrap";
 
-const CtQuyenGopDetail = (props) => {
+const CtQuyenGopDetail = () => {
 
     const [QuyenGop, setQuyenGop] = useState({});
 
     const [IsShow, setisShow] = useState(false);
-
+    let {id} = useParams();
 
     useEffect(() => {
-        axios.get(`${Api.url}/1`)
+        axios.get(`${Api.url}/${id}`)
             .then(res => setQuyenGop(res.data))
             .catch(res => console.log(res.data))
     }, [])

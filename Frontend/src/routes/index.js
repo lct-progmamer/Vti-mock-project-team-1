@@ -136,6 +136,10 @@ const VectorMaps = async(() =>
 const GoogleMaps = async(() =>
     import ("../pages/maps/GoogleMaps"));
 
+const quyenGops = async (() => 
+    import ("../pages/Home/quyenGops"));
+
+
 const CtQuyenGopDetail = async(() =>
     import ("../pages/Home/CtQuyenGopDetail"));
 
@@ -152,30 +156,30 @@ const landingRoutes = {
     children: null
 };
 
-// const HomeRoutes = {
-//     path: "/CtQuyenGop",
-//     name: "Home",
-//     icon: ListIcon,
-//     component: CtQuyenGop,
-//     children: [
-//     {
-//         path: "/CtQuyenGop/:id",
-//         name: "CtQuyenGopDetail",
-//         // component: withAuth(Default)
-//         component: CtQuyenGopDetail,
-//         children: [
-//             {
-//                 path: "/CtQuyenGop/:id/byChuyenKhoan",
-//                 name: "byChuyenKhoan",
-//                 component: QGbyChuyenKhoan
-//             }
-//         ]
-//     }
+const HomeRoutes = {
+    path: "/",
+    name: "Home",
+    icon: ListIcon,
+    component: quyenGops,
+    children: [
+    {
+        path: "/CtQuyenGop/:id",
+        name: "CtQuyenGopDetail",
+        component: CtQuyenGopDetail,
+        children: [
+            {
+                path: "/CtQuyenGop/:id/byChuyenKhoan",
+                name: "byChuyenKhoan",
+                component: QGbyChuyenKhoan
+                
+            }
+        ]
+    }
 
-// ]
+]
 
 
-// }
+}
 
 
 
@@ -647,7 +651,6 @@ const SettingsRoutes = {
 // Dashboard specific routes
 export const dashboard = [
     dashboardRoutes,
-    // HomeRoutes,
     pageRoutes,
     layoutRoutes,
     documentationRoutes,
@@ -675,8 +678,7 @@ export const page = [authRoutes];
 
 // All routes
 export default [
-    // HomeRoutes,
-    dashboardRoutes,
+    HomeRoutes,
     // pageRoutes,
     // authRoutes,
     // layoutRoutes,
