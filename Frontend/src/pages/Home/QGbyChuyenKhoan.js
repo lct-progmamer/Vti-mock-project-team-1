@@ -1,9 +1,23 @@
 /* eslint-disable */
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import Carousel from "react-elastic-carousel";
-import {useParams} from "react-router-dom";
-import Api from "../../api/ctQuyenGopApi";
+import React, { useEffect, useState ,useRef } from "react";
+import {Link, useParams} from "react-router-dom";
+import api from "../../api/ctQuyenGopApi";
+import "./ChuyenKhoanCss.scss";
+import { toastr } from "react-redux-toastr";
+import {
+    Button,
+    Card,
+    CardBody,
+    Col,
+    Container,
+    Row,
+    Modal,
+    ModalBody,
+    ModalFooter,
+    ModalHeader,
+} from "reactstrap";
+
 
 const QGbyChuyenKhoan = () => {
     
@@ -13,62 +27,90 @@ const QGbyChuyenKhoan = () => {
     const [NganHang , setNganHang] = useState([]);
     const [tenChuongTrinh , setTenChuongTrinh] = useState("");
     const [SoTk , setSoTk] = useState("");
-    const [statusCopy , setStatusCopy] = useState("");
+    const textAreaRef = useRef(null); 
   
     useEffect(() => {
         // console.log(id);
-        axios.get(`${Api.url}/${3}`)
+        axios.get(`${api.url}/${1}`)
             .then(res => {
                 setNganHang(res.data.nganHangs);
                 setTenChuongTrinh(res.data.nganHangs[0].tenChuongTrinh);
-               
             })
             .catch(res => console.log(res.data))
-    }, [NganHang])
+    }, [])
    
     const GenSoTk = (id) => {
         NganHang?.map(items => {
             if(items.id == id)
             {
                 setSoTk(items.so_tk);
-               
             }
         });
     }
+
+    function copyToClipboard(e) {
+        textAreaRef.current.select();
+        document.execCommand('copy');
+        // This is just personal preference.
+        // I prefer to not show the the whole text area selected.
+        e.target.focus();
+        showSucessNotification("" , "Copied");
+      };
+
+      const showSucessNotification = (title, message) => {
+        const options = {
+          timeOut: 1500,
+          showCloseButton: false,
+          progressBar: false,
+          position: "top-right"
+        };
+    
+        // show notification
+        toastr.success(title, message, options);
+      }
+
 
 
     return(
 
         <>
-            <h2>{tenChuongTrinh}</h2>
-            <h5>
-                Lựa Chọn Ngân Hàng
-            </h5>
-            <div>
-                {
-                    NganHang?.map(items => {
-                        return (
-                            <figure>
-                                <img src={items.image} alt={items.name} style={{width:"100%"}} onClick={() => GenSoTk(items.id)} key={items.id}/>
-                                <figcaption>{items.name}</figcaption>
-                            </figure>
+            <Container className="container">
+                <h2 className="donation_title">{tenChuongTrinh}</h2>
+                <h5 className="bank_title">
+                    Lựa Chọn Ngân Hàng
+                </h5>
+                <Row>
+                    {
+                    
+                        NganHang?.map(items => {
+                            return (
+                                <Col xs="3">
+                                    <figure key={items.id}>
+                                        <img className="image_bank" src={`http://127.0.0.1:8887/${items.image}`} alt={items.name} width="150" height="150" onClick={() => GenSoTk(items.id)} key={items.id}/>
+                                        <figcaption className="bank_name">{items.name}</figcaption>
+                                    </figure>
+                                </Col>
+                            );
+                        })
+                    }  
+                </Row>
+                <h4>
+                    Bạn vui lòng chuyển khoản tới số tài khoản sau để chương trình có thể nhận được tấm lòng của bạn
+                </h4>
+                <form>
+                    <input className="pay_account" type="text" ref={textAreaRef} value={SoTk}/>
+                </form>
+                <div className="btn">
+                    {
+                         document.queryCommandSupported('copy') &&
+                         <Button className="btn-copy" color="success" onClick={copyToClipboard}>Copy</Button>
 
-                        );
-                    })
-                }
-            </div>
-            <h4>
-                Bạn vui lòng chuyển khoản tới số tài khoản sau để chương trình có thể nhận được tấm lòng của bạn
-            </h4>
-            <h3>
-                {SoTk}
-            </h3>
-            <div>
-                <CopyToClipboard>
-                    <button className="btn btn-success">Copy</button>
-                </CopyToClipboard>
-                <button className="btn btn-primary">Quay Lại</button>
-            </div>
+                    }
+                    
+                    
+                    <Link to={`/ctquyengops/${id}`}><Button className="btn-back" color="primary">Quay Lại</Button></Link>
+               </div>
+            </Container>
         </>
 
 

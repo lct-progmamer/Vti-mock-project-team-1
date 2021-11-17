@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import Api from "../../api/ctQuyenGopApi";
 import Carousel from "react-elastic-carousel";
 import {Link , useParams} from "react-router-dom";
-
-
 import "./CtQuyenGopCss.scss";
 import {
     Button,
