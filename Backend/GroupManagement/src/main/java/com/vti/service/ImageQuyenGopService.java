@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.vti.entity.ImageQuyenGop;
 import com.vti.repository.IImageQuyenGopRepository;
@@ -35,5 +36,26 @@ public class ImageQuyenGopService implements IImageQuyenGopService{
 		// TODO Auto-generated method stub
 		return repository.existsById(id);
 	}
+
+	@Override
+	public ImageQuyenGop getImageQuyenGopByName(String name) {
+		// TODO Auto-generated method stub
+		return repository.findImageQuyenGopByName(name);
+	}
+
+	@Override
+	public boolean existsImageQuyenGopByName(String name) {
+		// TODO Auto-generated method stub
+		return repository.existsImageQuyenGopByName(name);
+	}
+
+	@Override
+	public void createImageQuyenGop(ImageQuyenGop img) {
+		repository.save(img);
+		
+	}
+
+
+
 
 }

@@ -6,8 +6,6 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.OneToMany;
@@ -28,7 +26,7 @@ public class CtQuyenGop implements Serializable{
 	@javax.persistence.Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "Id")	
-	private int Id;
+	private int id;
 	
 	
 	@Column(name = "Ct_name" , length = 255 , unique = true , nullable = false)
@@ -53,25 +51,43 @@ public class CtQuyenGop implements Serializable{
 
 	
 	@OneToMany(mappedBy = "ctQuyenGop")
+	
 	private List<ImageQuyenGop> images;
 	
 	@OneToMany(mappedBy = "ctQuyenGop")
 	private List<UserQuyenGop> ctrinhs;
 	
 
-
+	@OneToMany(mappedBy = "quyenGop")
+	private List<nganHangTuThien> nganHangs;
 	
+	
+	
+
+	public CtQuyenGop(String name, String description, Date date_Start, Date date_End, int tienQuyenGop, float status,
+			List<ImageQuyenGop> images, List<UserQuyenGop> ctrinhs, List<nganHangTuThien> nganHangs) {
+		super();
+		this.name = name;
+		this.description = description;
+		Date_Start = date_Start;
+		Date_End = date_End;
+		this.tienQuyenGop = tienQuyenGop;
+		this.status = status;
+		this.images = images;
+		this.ctrinhs = ctrinhs;
+		this.nganHangs = nganHangs;
+	}
 
 	public CtQuyenGop() {
 		super();
 	}
 
 	public int getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(int id) {
-		Id = id;
+		id = id;
 	}
 
 	public String getName() {
@@ -115,11 +131,6 @@ public class CtQuyenGop implements Serializable{
 	}
 
 	
-
-	
-
-	
-	
 	
 	public float getStatus() {
 		return status;
@@ -145,12 +156,13 @@ public class CtQuyenGop implements Serializable{
 		this.images = images;
 	}
 
-	
+	public List<nganHangTuThien> getNganHangs() {
+		return nganHangs;
+	}
 
-	
-	
-	
-	
-	
+	public void setNganHangs(List<nganHangTuThien> nganHangs) {
+		this.nganHangs = nganHangs;
+	}
+
 	
 }

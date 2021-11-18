@@ -10,6 +10,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.ManyToAny;
 
+import com.vti.dto.CtQuyenGopDtoCreate;
+
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -29,8 +31,8 @@ public class ImageQuyenGop implements Serializable{
 	private int Id;
 	
 	
-	@Column(name = "Image_url" , length = 255 , unique = false , nullable = false)
-	private String imageUrl;
+	@Column(name = "name" , length = 500 , unique = false , nullable = false)
+	private String name;
 
 	@Column(name = "Discription_Image", length = 800 , nullable = false)
 	private String discriptionImage;
@@ -40,13 +42,13 @@ public class ImageQuyenGop implements Serializable{
 	private CtQuyenGop ctQuyenGop;
 	
 
-	
-	
+	public void setCtQuyenGop(CtQuyenGop ctQuyenGop) {
+		this.ctQuyenGop = ctQuyenGop;
+	}
 
-	public ImageQuyenGop(int id, String imageUrl, String discriptionImage, CtQuyenGop ctQuyenGop) {
+	public ImageQuyenGop(String name, String discriptionImage, CtQuyenGop ctQuyenGop) {
 		super();
-		Id = id;
-		this.imageUrl = imageUrl;
+		this.name = name;
 		this.discriptionImage = discriptionImage;
 		this.ctQuyenGop = ctQuyenGop;
 	}
@@ -63,12 +65,14 @@ public class ImageQuyenGop implements Serializable{
 		Id = id;
 	}
 
-	public String getImageUrl() {
-		return imageUrl;
+	
+
+	public String getName() {
+		return name;
 	}
 
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getDiscriptionImage() {
@@ -87,17 +91,8 @@ public class ImageQuyenGop implements Serializable{
 		return ctQuyenGop;
 	}
 
-	public void setCtQuyenGop(CtQuyenGop ctQuyenGop) {
-		this.ctQuyenGop = ctQuyenGop;
-	}
 
-	@Override
-	public String toString() {
-		return "ImageQuyenGop [Id=" + Id + ", imageUrl=" + imageUrl + ", discriptionImage=" + discriptionImage + "]";
-	}
-	
 	 
-	
-	
+
 		
 }

@@ -1,5 +1,6 @@
 package com.vti.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,13 +10,20 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.vti.dto.ImageQuenGopDto;
+import com.vti.dto.ImageQuyenGopDtoCreate;
+import com.vti.entity.CtQuyenGop;
 import com.vti.entity.ImageQuyenGop;
+import com.vti.service.ICtQuyenGopService;
+import com.vti.service.IFileService;
 import com.vti.service.IImageQuyenGopService;
+import com.vti.utils.FileManager;
 
 @RestController
 @CrossOrigin("*")
@@ -24,6 +32,13 @@ public class ImageQuyenGopController {
 	
 	@Autowired
 	private IImageQuyenGopService service;
+	
+	@Autowired
+	private IFileService fileService;
+
+	@Autowired
+	private ICtQuyenGopService quyenGopService;
+	
 	
 	@GetMapping()
 	public ResponseEntity<?> getAllImageQuyenGops(){
@@ -46,5 +61,24 @@ public class ImageQuyenGopController {
 		return new ResponseEntity<ImageQuenGopDto>(dto , HttpStatus.OK);
 	}
 	
+	
+	@PostMapping()
+	public ResponseEntity<?> createImageQuyenGop(@RequestParam("CtQuyenGopId") int CtQuyenGopId ,@RequestParam("discription") String discription ,@RequestParam(name = "image") MultipartFile image) throws IOException{
+		
+		if (!new FileManager().isTypeFileImage(image)) {
+			return new ResponseEntity<>("File must be image!", HttpStatus.UNPROCESSABLE_ENTITY);
+		}
+		String name = fileService.uploadImage(image);
+		CtQuyenGop quyengop = quyenGopService.getCtQuyenGopById(CtQuyenGopId);
+		
+		ImageQuyenGopDtoCreate dtoCreate = new ImageQuyenGopDtoCreate();
+		dtoCreate.setDiscription(discription);
+		dtoCreate.setCtQuyenGop(quyengop);
+		dtoCreate.setName(name);
+		
+		service.createImageQuyenGop(dtoCreate.toImageQuyenGop());
+		
+		return new ResponseEntity<ImageQuenGopDto>(ImageQuenGopDto.convertToImageDto(dtoCreate.toImageQuyenGop()),HttpStatus.CREATED);
+	}
 
 }

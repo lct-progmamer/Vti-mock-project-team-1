@@ -40,23 +40,24 @@ CREATE TABLE IF NOT EXISTS `Reset_Password_Token` (
 DROP TABLE IF EXISTS `CT_QUYEN_GOP`;
 CREATE TABLE `CT_QUYEN_GOP`(
 
-	Id  					  											SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	Ct_name     	  											VARCHAR(255) UNIQUE KEY  NOT NULL,
+	Id  					  							SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	Ct_name     	  									VARCHAR(255) UNIQUE KEY  NOT NULL,
 	Discription_Quyen_gop   							VARCHAR(2000) NOT NULL,
-	Date_Start     												DATETIME DEFAULT(NOW()),
-	Date_End        											DATETIME DEFAULT(NOW()),
-	Tong_tien_quyen_gop										INT UNSIGNED NOT NULL DEFAULT(100000),
-	`Status`                   						FLOAT UNSIGNED DEFAULT(0)
+	Date_Start     										DATETIME DEFAULT(NOW()),
+	Date_End        									DATETIME DEFAULT(NOW()),
+	Tong_tien_quyen_gop									INT UNSIGNED NOT NULL DEFAULT(100000),
+	`Status`                   							FLOAT UNSIGNED DEFAULT(0)
 );
 
 DROP TABLE IF EXISTS `IMAGE_QUYEN_GOP`;
 CREATE TABLE `IMAGE_QUYEN_GOP`(
 
-	Id 																		SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	Image_url					 		       					VARCHAR(255) UNIQUE KEY NOT NULL,
+	Id 														SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	`name`					 		       				VARCHAR(500) UNIQUE KEY NOT NULL,
 	Discription_Image   									VARCHAR(800) NOT NULL,
-	Ct_quyen_gop_Id  											SMALLINT UNSIGNED  NOT NULL,
+	Ct_quyen_gop_Id  										SMALLINT UNSIGNED  NOT NULL,
 	
+    
 	FOREIGN KEY (Ct_quyen_gop_Id) REFERENCES CT_QUYEN_GOP(Id)
 
 );
@@ -67,11 +68,24 @@ CREATE TABLE `USER_QUYEN_GOP`(
 		Ct_quyen_gop_Id  										SMALLINT UNSIGNED NOT NULL,
 		User_Id          										SMALLINT UNSIGNED NOT NULL,
 		Tien_quyen_gop 											INT UNSIGNED NOT NULL DEFAULT(0),
-		
+		`status`												enum('0' , '1') DEFAULT(0), -- 1 : DA CHUYEN , 0 : CHUA CHUYEN
+
 		FOREIGN KEY (Ct_quyen_gop_Id) REFERENCES CT_QUYEN_GOP(Id),
 		FOREIGN KEY (User_Id) REFERENCES `User`(id)
 		
 );
+
+DROP TABLE IF EXISTS `NGAN_HANG_TU_THIEN`;
+CREATE TABLE `NGAN_HANG_TU_THIEN`(
+	id						SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    `name`					VARCHAR(250)  NOT NULL,
+	image_bank				VARCHAR(500),
+    so_tk					VARCHAR(50) UNIQUE KEY NOT NULL,
+    id_quyen_gop			SMALLINT UNSIGNED NOT NULL,
+    
+    FOREIGN KEY (id_quyen_gop) REFERENCES CT_QUYEN_GOP(Id)
+);
+
 
 
 -- password: 123456
@@ -126,8 +140,8 @@ Phía sau con số tưởng như tròn trịa ấy là bao giọt nước mắt 
 
 
 
-INSERT INTO image_quyen_gop(Image_url , Discription_Image , Ct_quyen_gop_Id)
-VALUES ('https://static.mservice.io/blogscontents/momo-upload-api-210721141701-637624738210154959.jpg','Vaccine là biện pháp hữu hiệu nhất để bảo vệ tính mạng của người dân và đưa cuộc sống trở lại bình thường',1) ,
+INSERT INTO image_quyen_gop(`name`	 , Discription_Image , Ct_quyen_gop_Id)
+VALUES ('1636984311657.jpg','Vaccine là biện pháp hữu hiệu nhất để bảo vệ tính mạng của người dân và đưa cuộc sống trở lại bình thường',1) ,
 ('https://static.mservice.io/blogscontents/momo-upload-api-210625182125-637602420857550435.jpg','Sự chung tay từ cộng đồng các nhà hảo tâm sẽ là đóng góp to lớn để giúp đất nước chiến thắng đại dịch',1),
 ('https://static.mservice.io/blogscontents/momo-upload-api-210721142144-637624741042118090.jpg' ,
 'Sự chung tay từ cộng đồng các nhà hảo tâm sẽ là đóng góp to lớn để giúp đất nước chiến thắng đại dịch' , 1),
@@ -150,10 +164,34 @@ VALUES ('https://static.mservice.io/blogscontents/momo-upload-api-210721141701-6
 
 
 
-INSERT INTO USER_QUYEN_GOP(Ct_quyen_gop_Id , User_Id , Tien_quyen_gop)
-VALUES (1,16,150000000);
+INSERT INTO USER_QUYEN_GOP(Ct_quyen_gop_Id , User_Id , Tien_quyen_gop , `status`)
+VALUES (1,16,150000000 , 1);
 
 
+INSERT INTO `NGAN_HANG_TU_THIEN`(`name` , image_bank , so_tk , id_quyen_gop)
+VALUES ('Agribank' , '' , '00000000001' , 1),
+		('TechComBank' ,'', '00000000002' , 1),
+        ('VietCombank' ,'', '00000000003' , 1),
+        ('MB BANK' , '' , '00000000004' , 1),
+        ('VietTinBank' , '' , '00000000005',2),
+        ('HB BANK' , '' , '423423421',2),
+        ('MB BANK' , '' , '32423423523',2),
+        ('AGRIBANK BANK' , '' , '4534253466',2),
+        ('VietTinBank' , '' , '123456768',3),
+        ('HB BANK' , '' , '75634541756',3),
+        ('MB BANK' , '' , '12315432131',3),
+        ('AGRIBANK BANK' , '' , '12312432423',3),
+        ('HB BANK' , '' , '7563454756',4),
+        ('MB BANK' , '' , '234234523143',4),
+        ('AGRIBANK BANK' , '' , '12334643534',4),
+        ('VietTinBank' , '' , '1232545346',4),
+        ('MB BANK' , '' , '676575674',5),
+        ('AGRIBANK BANK' , '' , '3142354634',5),
+        ('VietTinBank' , '' , '34564352345',5),
+        ('MB BANK' , '' , '345345547645',6),
+        ('AGRIBANK BANK' , '' , '1243768245',6),
+        ('VietTinBank' , '' , '23421435',6);
+        
 				
 												
 												
