@@ -142,25 +142,25 @@ Phía sau con số tưởng như tròn trịa ấy là bao giọt nước mắt 
 
 INSERT INTO image_quyen_gop(`name`	 , Discription_Image , Ct_quyen_gop_Id)
 VALUES ('1636984311657.jpg','Vaccine là biện pháp hữu hiệu nhất để bảo vệ tính mạng của người dân và đưa cuộc sống trở lại bình thường',1) ,
-('https://static.mservice.io/blogscontents/momo-upload-api-210625182125-637602420857550435.jpg','Sự chung tay từ cộng đồng các nhà hảo tâm sẽ là đóng góp to lớn để giúp đất nước chiến thắng đại dịch',1),
-('https://static.mservice.io/blogscontents/momo-upload-api-210721142144-637624741042118090.jpg' ,
+('210625182125-637602420857550435.jpg','Sự chung tay từ cộng đồng các nhà hảo tâm sẽ là đóng góp to lớn để giúp đất nước chiến thắng đại dịch',1),
+('210721142144-637624741042118090.jpg' ,
 'Sự chung tay từ cộng đồng các nhà hảo tâm sẽ là đóng góp to lớn để giúp đất nước chiến thắng đại dịch' , 1),
-('https://static.mservice.io/blogscontents/momo-upload-api-210920192348-637677626283318592.jpg'
+('210920192348-637677626283318592.jpg'
 , 'Dịch bệnh phức tạp đã khiến hơn 1.500 em nhỏ sống tại TP.HCM mất người thân, trở thành trẻ mồ côi' , 2 ),
-('https://static.mservice.io/blogscontents/momo-upload-api-210920192844-637677629249618686.jpg','Các em nhỏ mồ côi vì dịch bệnh rất cần sự chăm lo để vượt qua nỗi đau và ổn định cuộc sống',2),
-('https://static.mservice.io/blogscontents/momo-upload-api-211006094630-637691103903433389.jpg','Các em nhỏ nhận quà từ Chương trình "Tình thương cho em"',2),
-('https://static.mservice.io/blogscontents/momo-upload-api-211102104856-637714469367188872.jpg','Hình ảnh em Chênh cùng mẹ bên bếp củi.',3),
-('https://static.mservice.io/blogscontents/momo-upload-api-211102104930-637714469701570149.jpg','Dù bao khó khăn nhưng em Chênh luôn khao khát được đến trường.',3),
-('https://static.mservice.io/blogscontents/momo-upload-api-211102104952-637714469923465414.jpg','Ngôi nhà làm từ tre và lá cọ mà gia đình em Chênh đang ở nhờ.',3),
-('https://static.mservice.io/blogscontents/momo-upload-api-210723161559-637626537590447065.jpg','Mất đi việc làm, thực phẩm leo giá càng khiến cho cuộc sống khó khăn chồng chất khó khăn...',4),
-('https://static.mservice.io/blogscontents/momo-upload-api-210719174945-637623137856063478.jpg','Gói hỗ trợ trẻ em của chiến dịch “Ba lô chở che mùa dịch"',4),
-('https://static.mservice.io/blogscontents/momo-upload-api-210719175015-637623138153424988.jpg','Chung tay trao những gói hỗ trợ đến các hoàn cảnh khó khăn',4),
-('https://static.mservice.io/blogscontents/momo-upload-api-210719173522-637623129226018749.jpg','Cuộc sống leo lắt, nay đây mai đó khổ sở của người dân vì dịch bệnh',5),
-('https://static.mservice.io/blogscontents/momo-upload-api-210719173644-637623130049978802.jpg','Tình trạng lao động bị thất nghiệp khiến họ không đủ thu nhập lo cho gia đình',5),
-('https://static.mservice.io/blogscontents/momo-upload-api-210719173719-637623130396678370.jpg','Thu nhập bấp bênh khiến cái ăn, cái mặc thiếu thốn vô cùng',5),
-('https://static.mservice.io/blogscontents/momo-upload-api-211027102022-637709268226101974.jpg','Điểm trường Huổi Po tọa lạc tại bản Huổi Po, xã Na Cô Sa có hơn 10 năm tuổi đời',6),
-('https://static.mservice.io/blogscontents/momo-upload-api-211027102153-637709269133295529.jpg','Điểm trường đã xuống cấp nghiêm trọng. Phòng học được ghép bằng gỗ thưa không thể nào ngăn được gió lạnh',6),
-('https://static.mservice.io/blogscontents/momo-upload-api-211027102225-637709269456099618.jpg','Nói về cái khó của sự học nơi đây có lẽ nhiều không kể hết, nhưng chính những nhọc nhằn của các em là động lực để nhiều thầy cô âm thầm hy sinh bám trường, bám lớp. ',6);
+('210920192844-637677629249618686.jpg','Các em nhỏ mồ côi vì dịch bệnh rất cần sự chăm lo để vượt qua nỗi đau và ổn định cuộc sống',2),
+('211006094630-637691103903433389.jpg','Các em nhỏ nhận quà từ Chương trình "Tình thương cho em"',2),
+('211102104856-637714469367188872.jpg','Hình ảnh em Chênh cùng mẹ bên bếp củi.',3),
+('211102104930-637714469701570149.jpg','Dù bao khó khăn nhưng em Chênh luôn khao khát được đến trường.',3),
+('211102104952-637714469923465414.jpg','Ngôi nhà làm từ tre và lá cọ mà gia đình em Chênh đang ở nhờ.',3),
+('210723161559-637626537590447065.jpg','Mất đi việc làm, thực phẩm leo giá càng khiến cho cuộc sống khó khăn chồng chất khó khăn...',4),
+('210719174945-637623137856063478.jpg','Gói hỗ trợ trẻ em của chiến dịch “Ba lô chở che mùa dịch"',4),
+('210719175015-637623138153424988.jpg','Chung tay trao những gói hỗ trợ đến các hoàn cảnh khó khăn',4),
+('210719173522-637623129226018749.jpg','Cuộc sống leo lắt, nay đây mai đó khổ sở của người dân vì dịch bệnh',5),
+('210719173644-637623130049978802.jpg','Tình trạng lao động bị thất nghiệp khiến họ không đủ thu nhập lo cho gia đình',5),
+('210719173719-637623130396678370.jpg','Thu nhập bấp bênh khiến cái ăn, cái mặc thiếu thốn vô cùng',5),
+('211027102022-637709268226101974.jpg','Điểm trường Huổi Po tọa lạc tại bản Huổi Po, xã Na Cô Sa có hơn 10 năm tuổi đời',6),
+('211027102153-637709269133295529.jpg','Điểm trường đã xuống cấp nghiêm trọng. Phòng học được ghép bằng gỗ thưa không thể nào ngăn được gió lạnh',6),
+('211027102225-637709269456099618.jpg','Nói về cái khó của sự học nơi đây có lẽ nhiều không kể hết, nhưng chính những nhọc nhằn của các em là động lực để nhiều thầy cô âm thầm hy sinh bám trường, bám lớp. ',6);
 
 
 
@@ -170,27 +170,27 @@ VALUES (1,16,150000000 , 1);
 
 INSERT INTO `NGAN_HANG_TU_THIEN`(`name` , image_bank , so_tk , id_quyen_gop)
 VALUES ('Agribank' , 'agribank-logo.png' , '00000000001' , 1),
-		('TechComBank' ,'', '00000000002' , 1),
-        ('VietCombank' ,'', '00000000003' , 1),
+		('TechComBank' ,'techcombank.jpg', '00000000002' , 1),
+        ('Viettinbank' ,'viettin-bank.png', '00000000003' , 1),
         ('MB BANK' , 'mb-bank.jpg' , '00000000004' , 1),
-        ('VietTinBank' , '' , '00000000005',2),
+        ('VietTinBank' , 'viettin-bank.png' , '00000000005',2),
         ('MB BANK' , 'mb-bank.jpg' , '423423421',2),
         ('techcom BANK' , 'techcombank.jpg' , '32423423523',2),
         ('AGRIBANK' , 'agribank-logo.png' , '4534253466',2),
-        ('VietTinBank' , '' , '123456768',3),
+        ('VietTinBank' , 'viettin-bank.png' , '123456768',3),
         ('MB BANK' , 'mb-bank.jpg' , '75634541756',3),
         ('Techcom BANK' , 'techcombank.jpg' , '12315432131',3),
         ('AGRIBANK' , 'agribank-logo.png' , '12312432423',3),
         ('MB BANK' , 'mb-bank.jpg' , '7563454756',4),
-        ('TechCom BANK' , 'techcombank.jpg' , '234234523143',4),
+        ('TechCom BANK' , 'techcombank.jpg' , '234234523143',4),	
         ('AGRIBANK' , 'agribank-logo.png' , '12334643534',4),
-        ('VietTinBank' , '' , '1232545346',4),
+        ('VietTinBank' , 'viettin-bank.png' , '1232545346',4),
         ('MB BANK' , 'mb-bank.jpg' , '676575674',5),
         ('AGRIBANK' , 'agribank-logo.png' , '3142354634',5),
-        ('VietTinBank' , '' , '34564352345',5),
+        ('VietTinBank' , 'viettin-bank.png' , '34564352345',5),
         ('MB BANK' , 'mb-bank.jpg' , '345345547645',6),
         ('AGRIBANK' , 'agribank-logo.png' , '1243768245',6),
-        ('VietTinBank' , '' , '23421435',6);
+        ('VietTinBank' , 'viettin-bank.png' , '23421435',6);
         
 				
 												
