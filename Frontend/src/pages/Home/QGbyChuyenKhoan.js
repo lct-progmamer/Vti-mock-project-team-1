@@ -26,7 +26,7 @@ const QGbyChuyenKhoan = () => {
     
     const [NganHang , setNganHang] = useState([]);
     const [tenChuongTrinh , setTenChuongTrinh] = useState("");
-    const [SoTk , setSoTk] = useState("");
+    const [SoTk , setSoTk] = useState("**************");
     const textAreaRef = useRef(null); 
   
     useEffect(() => {
