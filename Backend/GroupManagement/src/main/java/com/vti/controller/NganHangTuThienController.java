@@ -1,5 +1,6 @@
 package com.vti.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.vti.dto.nganHangTuThienDto;
 import com.vti.entity.CtQuyenGop;
@@ -44,13 +47,13 @@ public class NganHangTuThienController {
 		return new ResponseEntity<List<nganHangTuThienDto>>(dtos , HttpStatus.OK);
 	}
 	
-	@PostMapping(value = "/{CtQuyenGopId}")
-	public ResponseEntity<?> createNganHangTuThien(@PathVariable("CtQuyenGopId") int CtQuyenGopId ,@RequestBody nganHangTuThien nganhang ){
+	@PostMapping()
+	public ResponseEntity<?> createNganHangTuThien(@RequestParam("CtQuyenGopId") int CtQuyenGopId,
+		@RequestParam("name") String name , @RequestParam("so_tk") String so_tk ,
+		@RequestParam(name = "image") MultipartFile image) throws IOException{
 		
-		CtQuyenGop chuongTrinh = CtQuyenGopservice.getCtQuyenGopById(CtQuyenGopId);
-		nganhang.setQuyenGop(chuongTrinh);
-		service.createNganHangTuThien(nganhang);
-		return new ResponseEntity<>(nganHangTuThienDto.convertToDto(nganhang),HttpStatus.CREATED);
+		service.createNganHangTuThien(CtQuyenGopId , name ,so_tk , image);
+		return new ResponseEntity<String>("create success",HttpStatus.CREATED);
 		
 	}
 	

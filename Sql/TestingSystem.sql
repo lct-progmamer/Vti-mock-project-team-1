@@ -43,10 +43,10 @@ CREATE TABLE `CT_QUYEN_GOP`(
 	Id  					  							SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 	Ct_name     	  									VARCHAR(255) UNIQUE KEY  NOT NULL,
 	Discription_Quyen_gop   							VARCHAR(2000) NOT NULL,
-	Date_Start     										DATETIME DEFAULT(NOW()),
-	Date_End        									DATETIME DEFAULT(NOW()),
+	Date_Start     										DATE DEFAULT(NOW()),
+	Date_End        									DATE ,
 	Tong_tien_quyen_gop									INT UNSIGNED NOT NULL DEFAULT(100000),
-	`Status`                   							FLOAT UNSIGNED DEFAULT(0)
+	`Status`                   							FLOAT UNSIGNED DEFAULT(0)	
 );
 
 DROP TABLE IF EXISTS `IMAGE_QUYEN_GOP`;
@@ -54,10 +54,7 @@ CREATE TABLE `IMAGE_QUYEN_GOP`(
 
 	Id 														SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 	`name`					 		       				VARCHAR(500) UNIQUE KEY NOT NULL,
-	Discription_Image   									VARCHAR(800) NOT NULL,
 	Ct_quyen_gop_Id  										SMALLINT UNSIGNED  NOT NULL,
-	
-    
 	FOREIGN KEY (Ct_quyen_gop_Id) REFERENCES CT_QUYEN_GOP(Id)
 
 );
@@ -140,27 +137,25 @@ Phía sau con số tưởng như tròn trịa ấy là bao giọt nước mắt 
 
 
 
-INSERT INTO image_quyen_gop(`name`	 , Discription_Image , Ct_quyen_gop_Id)
-VALUES ('1636984311657.jpg','Vaccine là biện pháp hữu hiệu nhất để bảo vệ tính mạng của người dân và đưa cuộc sống trở lại bình thường',1) ,
-('210625182125-637602420857550435.jpg','Sự chung tay từ cộng đồng các nhà hảo tâm sẽ là đóng góp to lớn để giúp đất nước chiến thắng đại dịch',1),
-('210721142144-637624741042118090.jpg' ,
-'Sự chung tay từ cộng đồng các nhà hảo tâm sẽ là đóng góp to lớn để giúp đất nước chiến thắng đại dịch' , 1),
-('210920192348-637677626283318592.jpg'
-, 'Dịch bệnh phức tạp đã khiến hơn 1.500 em nhỏ sống tại TP.HCM mất người thân, trở thành trẻ mồ côi' , 2 ),
-('210920192844-637677629249618686.jpg','Các em nhỏ mồ côi vì dịch bệnh rất cần sự chăm lo để vượt qua nỗi đau và ổn định cuộc sống',2),
-('211006094630-637691103903433389.jpg','Các em nhỏ nhận quà từ Chương trình "Tình thương cho em"',2),
-('211102104856-637714469367188872.jpg','Hình ảnh em Chênh cùng mẹ bên bếp củi.',3),
-('211102104930-637714469701570149.jpg','Dù bao khó khăn nhưng em Chênh luôn khao khát được đến trường.',3),
-('211102104952-637714469923465414.jpg','Ngôi nhà làm từ tre và lá cọ mà gia đình em Chênh đang ở nhờ.',3),
-('210723161559-637626537590447065.jpg','Mất đi việc làm, thực phẩm leo giá càng khiến cho cuộc sống khó khăn chồng chất khó khăn...',4),
-('210719174945-637623137856063478.jpg','Gói hỗ trợ trẻ em của chiến dịch “Ba lô chở che mùa dịch"',4),
-('210719175015-637623138153424988.jpg','Chung tay trao những gói hỗ trợ đến các hoàn cảnh khó khăn',4),
-('210719173522-637623129226018749.jpg','Cuộc sống leo lắt, nay đây mai đó khổ sở của người dân vì dịch bệnh',5),
-('210719173644-637623130049978802.jpg','Tình trạng lao động bị thất nghiệp khiến họ không đủ thu nhập lo cho gia đình',5),
-('210719173719-637623130396678370.jpg','Thu nhập bấp bênh khiến cái ăn, cái mặc thiếu thốn vô cùng',5),
-('211027102022-637709268226101974.jpg','Điểm trường Huổi Po tọa lạc tại bản Huổi Po, xã Na Cô Sa có hơn 10 năm tuổi đời',6),
-('211027102153-637709269133295529.jpg','Điểm trường đã xuống cấp nghiêm trọng. Phòng học được ghép bằng gỗ thưa không thể nào ngăn được gió lạnh',6),
-('211027102225-637709269456099618.jpg','Nói về cái khó của sự học nơi đây có lẽ nhiều không kể hết, nhưng chính những nhọc nhằn của các em là động lực để nhiều thầy cô âm thầm hy sinh bám trường, bám lớp. ',6);
+INSERT INTO image_quyen_gop(`name`, Ct_quyen_gop_Id)
+VALUES ('1636984311657.jpg',1) ,
+('210625182125-637602420857550435.jpg',1),
+('210721142144-637624741042118090.jpg',1),
+('210920192348-637677626283318592.jpg',2),
+('210920192844-637677629249618686.jpg',2),
+('211006094630-637691103903433389.jpg',2),
+('211102104856-637714469367188872.jpg',3),
+('211102104930-637714469701570149.jpg',3),
+('211102104952-637714469923465414.jpg',3),
+('210723161559-637626537590447065.jpg',4),
+('210719174945-637623137856063478.jpg',4),
+('210719175015-637623138153424988.jpg',4),
+('210719173522-637623129226018749.jpg',5),
+('210719173644-637623130049978802.jpg',5),
+('210719173719-637623130396678370.jpg',5),
+('211027102022-637709268226101974.jpg',6),
+('211027102153-637709269133295529.jpg',6),
+('211027102225-637709269456099618.jpg',6);
 
 
 
