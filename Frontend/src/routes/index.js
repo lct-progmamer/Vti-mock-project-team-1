@@ -136,53 +136,45 @@ const VectorMaps = async(() =>
 const GoogleMaps = async(() =>
     import ("../pages/maps/GoogleMaps"));
 
-const quyenGops = async (() => 
-    import ("../pages/Home/quyenGops"));
+// Chuong trinh quyen gop
 
+const HomePage = async(() =>
+    import ("../pages/Home/homepage/HomePage.js"));
 
 const CtQuyenGopDetail = async(() =>
     import ("../pages/Home/CtQuyenGopDetail"));
 
 const QGbyChuyenKhoan = async (()=>
  import ("../pages/Home/QGbyChuyenKhoan"));
+const ListCtQuyenGops = async(() =>
+    import ("../pages/Home/listctquyengop/ListCtQuyenGops"));
 
 // Routes
 const landingRoutes = {
     path: "/",
     name: "Landing Page",
     // component: Landing,
-    // component: CtQuyenGop,
-    component: QGbyChuyenKhoan,
+    component: HomePage,
     children: null
 };
 
 const HomeRoutes = {
-    path: "/ctquyengops",
+    path: "/home",
     name: "Home",
     icon: ListIcon,
-    component: quyenGops,
-    children: [
+
+    children: [{
+        path: "/home/homepage",
+        name: "HomePage",
+        component: HomePage
+    },
     {
-        path: "/ctquyengops/:id",
-        name: "CtQuyenGopDetail",
-        component: CtQuyenGopDetail,
-        children: [
-            {
-                path: "/ctquyengops/:id/byChuyenKhoan",
-                name: "byChuyenKhoan",
-                component: QGbyChuyenKhoan
-                
-            }
-        ]
+        path: "/home/listquyengop",
+        name: "ListCtQuyenGops",
+        component: ListCtQuyenGops
     }
-
 ]
-
-
 }
-
-
-
 
 
 
@@ -651,6 +643,7 @@ const SettingsRoutes = {
 // Dashboard specific routes
 export const dashboard = [
     dashboardRoutes,
+    HomeRoutes,
     pageRoutes,
     layoutRoutes,
     documentationRoutes,

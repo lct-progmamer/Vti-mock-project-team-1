@@ -18,5 +18,5 @@ export const THEME_TOGGLE = "THEME_TOGGLE";
 export const TOKEN_INFO = "TOKEN_INFO";
 export const USER_LOGIN_INFO = "USER_LOGIN_INFO";
 
-export const Get_list_Ct_Quyen_Gop_Success = "GET_LIST_CT_QUYEN_GOP_SUCCESS";
-export const Get_list_Ct_Quyen_Gop_Fail = "GET_LIST_CT_QYYEN_GOP_FAIL";
+// ctquyengop
+export const GET_LIST_CTQUYENGOP = "GET_LIST_CTQUYENGOP";

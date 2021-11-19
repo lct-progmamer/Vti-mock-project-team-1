@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d2075730-f83c-466a-84a0-d2805a19e947" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Backend/GroupManagement/src/main/java/com/vti/controller/CtQuyenGopPageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/GroupManagement/src/main/java/com/vti/dto/filter/CtQuyenGopPageFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/GroupManagement/src/main/java/com/vti/entity/CtQuyenGopPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/GroupManagement/src/main/java/com/vti/entity/ImageQuyenGopPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/GroupManagement/src/main/java/com/vti/repository/ICtQuyenGopPageRespository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/GroupManagement/src/main/java/com/vti/service/CtQuyenGopPageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/GroupManagement/src/main/java/com/vti/service/ICtQuyenGopPageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/GroupManagement/src/main/java/com/vti/specification/CtQuyenGopPageSpecification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/GroupManagement/src/main/java/com/vti/specification/CtQuyenGopPageSpecificationBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/GroupManagement/target/classes/com/vti/controller/CtQuyenGopPageController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/GroupManagement/target/classes/com/vti/dto/filter/CtQuyenGopPageFilter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/GroupManagement/target/classes/com/vti/entity/CtQuyenGopPage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/GroupManagement/target/classes/com/vti/entity/ImageQuyenGopPage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/GroupManagement/target/classes/com/vti/repository/ICtQuyenGopPageRespository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/GroupManagement/target/classes/com/vti/service/CtQuyenGopPageService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/GroupManagement/target/classes/com/vti/service/ICtQuyenGopPageService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/GroupManagement/target/classes/com/vti/specification/CtQuyenGopPageSpecification.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/GroupManagement/target/classes/com/vti/specification/CtQuyenGopPageSpecificationBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/api/CtQuyenGopApi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/pages/Home/homepage/HomePage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/pages/Home/homepage/HomePage.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/pages/Home/listctquyengop/ListCtQuyenGops.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/pages/Home/listctquyengop/ListItemCtQuyenGops.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/pages/images/banner1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/pages/images/banner2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/pages/images/banner3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/pages/images/banner4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/pages/images/banner5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/pages/images/banner6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/pages/images/banner7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/pages/images/banner8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/pages/images/banner9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/pages/images/ocean.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/pages/images/person1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/redux/actions/CtQuyenGopAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/GroupManagement/src/main/java/com/vti/controller/CtQuyenGopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/GroupManagement/src/main/java/com/vti/controller/CtQuyenGopController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/GroupManagement/src/main/java/com/vti/entity/CtQuyenGop.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/GroupManagement/src/main/java/com/vti/entity/CtQuyenGop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/GroupManagement/target/classes/META-INF/maven/com.vti/GroupManagement/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/GroupManagement/target/classes/META-INF/maven/com.vti/GroupManagement/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/GroupManagement/target/classes/com/vti/controller/CtQuyenGopController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/GroupManagement/target/classes/com/vti/controller/CtQuyenGopController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/GroupManagement/target/classes/com/vti/entity/CtQuyenGop.class" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/GroupManagement/target/classes/com/vti/entity/CtQuyenGop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/css/classic.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/public/css/classic.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/css/corporate.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/public/css/corporate.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/css/modern.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/public/css/modern.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/api/ctQuyenGopApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/api/ctQuyenGopApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/pages/Home/CtQuyenGopCss.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/pages/Home/CtQuyenGopCss.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/redux/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/redux/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/redux/reducers/CtQuyenGopReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/redux/reducers/CtQuyenGopReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/redux/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/redux/reducers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/redux/selectors/CtQuyenGopSelector.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/redux/selectors/CtQuyenGopSelector.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/redux/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/redux/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/routes/Routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/routes/Routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sql/TestingSystem.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Sql/TestingSystem.sql" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="218cVlC9HUS64jLlegRFEQv7Uul" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d2075730-f83c-466a-84a0-d2805a19e947" name="Default Changelist" comment="" />
+      <created>1637326186953</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1637326186953</updated>
+      <workItem from="1637326193709" duration="40000" />
+      <workItem from="1637326274249" duration="3026000" />
+      <workItem from="1637329416788" duration="29000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>

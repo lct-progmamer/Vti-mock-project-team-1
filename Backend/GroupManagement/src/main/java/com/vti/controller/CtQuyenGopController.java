@@ -28,6 +28,9 @@ public class CtQuyenGopController {
 	@Autowired
 	private ICtQuyenGopService service;
 	
+	
+	
+	
 	@GetMapping()
 	public ResponseEntity<?> getAllCtQuyenGops(Parameters parameters){
 		
