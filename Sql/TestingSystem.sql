@@ -141,7 +141,7 @@ Phía sau con số tưởng như tròn trịa ấy là bao giọt nước mắt 
 
 
 INSERT INTO image_quyen_gop(`name`	 , Discription_Image , Ct_quyen_gop_Id)
-VALUES ('1636984311657.jpg','Vaccine là biện pháp hữu hiệu nhất để bảo vệ tính mạng của người dân và đưa cuộc sống trở lại bình thường',1) ,
+VALUES ('210625182930-637602425706833110.jpg','Vaccine là biện pháp hữu hiệu nhất để bảo vệ tính mạng của người dân và đưa cuộc sống trở lại bình thường',1) ,
 ('210625182125-637602420857550435.jpg','Sự chung tay từ cộng đồng các nhà hảo tâm sẽ là đóng góp to lớn để giúp đất nước chiến thắng đại dịch',1),
 ('210721142144-637624741042118090.jpg' ,
 'Sự chung tay từ cộng đồng các nhà hảo tâm sẽ là đóng góp to lớn để giúp đất nước chiến thắng đại dịch' , 1),

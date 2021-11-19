@@ -142,39 +142,47 @@ const HomePage = async(() =>
     import ("../pages/Home/homepage/HomePage.js"));
 
 const CtQuyenGopDetail = async(() =>
-    import ("../pages/Home/CtQuyenGopDetail"));
+    import ("../pages/Home/CtQuyenGopDetail.js"));
 
 const QGbyChuyenKhoan = async (()=>
- import ("../pages/Home/QGbyChuyenKhoan"));
+ import ("../pages/Home/QGbyChuyenKhoan.js"));
 const ListCtQuyenGops = async(() =>
-    import ("../pages/Home/listctquyengop/ListCtQuyenGops"));
+    import ("../pages/Home/listctquyengop/ListCtQuyenGops.js"));
+
+const Header = async(() => 
+    import ("../pages/Home/HeaderAndFooter/Header.js"));
+
+const Footer = async(() => 
+    import ("../pages/Home/HeaderAndFooter/Footer")
+);
 
 // Routes
+
 const landingRoutes = {
     path: "/",
     name: "Landing Page",
-    // component: Landing,
     component: HomePage,
     children: null
+    
 };
 
-const HomeRoutes = {
-    path: "/home",
-    name: "Home",
-    icon: ListIcon,
 
-    children: [{
-        path: "/home/homepage",
-        name: "HomePage",
-        component: HomePage
-    },
-    {
-        path: "/home/listquyengop",
-        name: "ListCtQuyenGops",
-        component: ListCtQuyenGops
-    }
-]
-}
+// [
+//     {
+//         path: "/home",
+//         name: "Home",
+//         component: ListCtQuyenGops,
+//         children : [
+//             {
+//                 path: "/home/:id",
+//                 name: "CtQuyenGopDetail",
+//                 component: CtQuyenGopDetail,  
+//             }
+//         ] 
+//     }
+// ]
+
+
 
 
 
@@ -642,24 +650,23 @@ const SettingsRoutes = {
 
 // Dashboard specific routes
 export const dashboard = [
-    dashboardRoutes,
-    HomeRoutes,
-    pageRoutes,
-    layoutRoutes,
-    documentationRoutes,
-    uiRoutes,
-    iconRoutes,
-    formRoutes,
-    tableRoutes,
-    formPluginsRoutes,
-    advancedTablesRoutes,
-    chartRoutes,
-    notificationsRoutes,
-    mapRoutes,
-    calendarRoutes,
-    privateRoutes,
-    ProfileRoutes,
-    SettingsRoutes
+    // dashboardRoutes,
+    // pageRoutes,
+    // layoutRoutes,
+    // documentationRoutes,
+    // uiRoutes,
+    // iconRoutes,
+    // formRoutes,
+    // tableRoutes,
+    // formPluginsRoutes,
+    // advancedTablesRoutes,
+    // chartRoutes,
+    // notificationsRoutes,
+    // mapRoutes,
+    // calendarRoutes,
+    // privateRoutes,
+    // ProfileRoutes,
+    // SettingsRoutes
 
 ];
 
@@ -671,8 +678,7 @@ export const page = [authRoutes];
 
 // All routes
 export default [
-    HomeRoutes,
-    // pageRoutes,
+      // pageRoutes,
     // authRoutes,
     // layoutRoutes,
     // documentationRoutes,

@@ -2,7 +2,7 @@
 import axios from "axios";
 import React, { useEffect, useState ,useRef } from "react";
 import {Link, useParams} from "react-router-dom";
-import api from "../../api/ctQuyenGopApi";
+import api from "../../api/CtQuyenGopApi";
 import "./ChuyenKhoanCss.scss";
 import { toastr } from "react-redux-toastr";
 import {
