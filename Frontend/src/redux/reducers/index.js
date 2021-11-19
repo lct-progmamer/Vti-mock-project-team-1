@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
-import ctQuyenGop from "./CtQuyenGopReducer";
+
 import sidebar from "./sidebarReducers";
 import layout from "./layoutReducer";
 import theme from "./themeReducer";
 import UserLoginInfo from "./UserLoginInfoReducers";
-
+import CtQuyenGop from "./CtQuyenGopReducer";
 import { reducer as toastr } from "react-redux-toastr";
 
 export default combineReducers({
@@ -13,6 +13,5 @@ export default combineReducers({
     theme,
     toastr,
     UserLoginInfo,
-    ctQuyenGop
-
+    CtQuyenGop
 });
