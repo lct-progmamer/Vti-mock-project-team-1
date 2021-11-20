@@ -16,7 +16,6 @@ public interface IImageQuyenGopService {
 	
 	public ImageQuyenGop getImageQuyenGopByName(String name);
 	
-	public List<ImageQuyenGop> getImageQuyenGopByCtQuyenGopId(int id);
 	
 	public boolean existsImageQuyenGopById(int id);
 	

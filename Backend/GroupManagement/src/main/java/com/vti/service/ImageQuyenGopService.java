@@ -76,12 +76,6 @@ public class ImageQuyenGopService implements IImageQuyenGopService{
 		
 	}
 
-	@Override
-	public List<ImageQuyenGop> getImageQuyenGopByCtQuyenGopId(int id) {
-		// TODO Auto-generated method stub
-		return repository.findImageQuyenGopByCtQuyenGopId(id);
-	}
-
 
 
 

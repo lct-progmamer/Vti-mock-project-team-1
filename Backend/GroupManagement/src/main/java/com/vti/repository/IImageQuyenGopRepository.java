@@ -13,7 +13,6 @@ public interface IImageQuyenGopRepository extends JpaRepository<ImageQuyenGop, I
 	
 	public boolean existsImageQuyenGopByName(String name);
 	
-	public List<ImageQuyenGop> findImageQuyenGopByCtQuyenGopId(int id);
 	
 	
 }

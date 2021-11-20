@@ -55,6 +55,10 @@ public class ImageQuyenGopController {
 		return new ResponseEntity<List<ImageQuenGopDto>>(dtos , HttpStatus.OK);
 	}
 	
+
+
+	
+	
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<?> getImageQuyenGopById(@PathVariable(name = "id") int id){
 		

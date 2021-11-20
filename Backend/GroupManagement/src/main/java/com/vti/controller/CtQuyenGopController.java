@@ -103,16 +103,13 @@ public class CtQuyenGopController {
 		imageService.createImageQuyenGop(ct.getId(), image2);
 		imageService.createImageQuyenGop(ct.getId(), image3);
 
-		List<ImageQuyenGop> images = new ArrayList<ImageQuyenGop>();
-
-
 		bankService.createNganHangTuThien(ct.getId(),bankName1,stk1,imageBank1);
 		bankService.createNganHangTuThien(ct.getId(),bankName2,stk2,imageBank2);
 
-		CtQuyenGopDTOShow dtoShow = CtQuyenGopDTOShow.convertToDto(service.getCtQuyenGopById(ct.getId()));
+		
 
 
-		return new ResponseEntity<CtQuyenGopDTOShow>(dtoShow, HttpStatus.CREATED);
+		return new ResponseEntity<CtQuyenGop>(ct, HttpStatus.CREATED);
 	}
 	
 	
