@@ -3,7 +3,7 @@ import * as types from "../constants";
 const initialState = {
   ctquyengops: [],
 
-
+  
 };
 
 export default function reducer(state = initialState, actions) {

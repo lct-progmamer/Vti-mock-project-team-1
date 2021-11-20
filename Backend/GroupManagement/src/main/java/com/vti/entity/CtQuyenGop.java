@@ -15,6 +15,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.beans.factory.annotation.Value;
+
 @Entity
 @Table(name = "CT_QUYEN_GOP" , catalog = "TestingSystem")
 public class CtQuyenGop implements Serializable{
@@ -40,12 +42,13 @@ public class CtQuyenGop implements Serializable{
 	
 	
 	@Temporal(TemporalType.DATE)
+	@Value("Default DBConfiguration")
 	private Date Date_Start;
 	
 	@Temporal(TemporalType.DATE)
 	private Date Date_End;
 	
-	@Column(name = "Tong_tien_quyen_gop" , nullable = false , columnDefinition = "int default 100000")
+	@Column(name = "Tong_tien_quyen_gop" , nullable = false , columnDefinition = "default 100000")
 	private int tienQuyenGop;
 	
 	@Column(name = "Status" , nullable = false ,columnDefinition = "float default 0")

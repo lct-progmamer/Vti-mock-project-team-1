@@ -6,8 +6,8 @@ import store from "./redux/store/index";
 import Routes from "./routes/Routes";
 
 const App = () => (
-   <Provider store={store}>
-     <Routes />
+  <Provider store={store}>
+    <Routes />
     <ReduxToastr
       timeOut={5000}
       newestOnTop={true}
@@ -18,10 +18,6 @@ const App = () => (
       closeOnToastrClick
     />
   </Provider>
-  
-      
-  
-
 );
 
 export default App;

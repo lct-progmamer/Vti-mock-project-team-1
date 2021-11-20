@@ -38,13 +38,13 @@ public class CtQuyenGopController {
 	
 	@Autowired
 	private IImageQuyenGopService imageService;
-
+	
 	@Autowired
 	private IFileService fileService;
-
+	
 	@Autowired
 	private INgangHangTuThienService bankService;
-
+	
 	@GetMapping()
 	public ResponseEntity<?> getAllCtQuyenGops(Parameters parameters){
 		
@@ -73,20 +73,25 @@ public class CtQuyenGopController {
 	}
 
 	@PostMapping()
-	public ResponseEntity<?> createCtQuyenGop(@RequestParam("name") String name ,
-			@RequestParam("start") Date start , @RequestParam("end") Date end,
-			@RequestParam("discrip") String discrip , @RequestParam("tongTien") int tongTien
-
+	public ResponseEntity<?> createCtQuyenGop(
+			@RequestParam("name") String name ,
+			@RequestParam("start") Date start,
+		    @RequestParam("end") Date end,
+			@RequestParam("discrip") String discrip, 
+			@RequestParam("tongTien") int tongTien
+			
+			
 			// image quyen gop
 			,@RequestParam("image1") MultipartFile image1 ,@RequestParam("image2") MultipartFile image2
-			 ,@RequestParam("image3") MultipartFile image3 ,
-
+			 ,@RequestParam("image3") MultipartFile image3,
+			 
 			 // create bank for quyen gop
 			 @RequestParam("bankName1") String bankName1
 			 ,@RequestParam("imageBank1") MultipartFile imageBank1 ,@RequestParam("stk1") String stk1,
 			 @RequestParam("bankName2") String bankName2,@RequestParam("imageBank2") MultipartFile imageBank2 ,
 			 @RequestParam("stk2") String stk2
-
+			 
+			
 			) throws IOException{
 		
 		CtQuyenGopDtoCreate dto = new CtQuyenGopDtoCreate();
@@ -96,23 +101,22 @@ public class CtQuyenGopController {
 		dto.setDiscription(discrip);
 		dto.setTongTien(tongTien);
 		CtQuyenGop ct = dto.toCtQuyenGop();
-		
 		service.createQuyenGop(ct);
 		
 		imageService.createImageQuyenGop(ct.getId(), image1);
 		imageService.createImageQuyenGop(ct.getId(), image2);
 		imageService.createImageQuyenGop(ct.getId(), image3);
-
+		
 		List<ImageQuyenGop> images = new ArrayList<ImageQuyenGop>();
-
-
+		
+		
 		bankService.createNganHangTuThien(ct.getId(),bankName1,stk1,imageBank1);
 		bankService.createNganHangTuThien(ct.getId(),bankName2,stk2,imageBank2);
-
-		CtQuyenGopDTOShow dtoShow = CtQuyenGopDTOShow.convertToDto(service.getCtQuyenGopById(ct.getId()));
-
-
-		return new ResponseEntity<CtQuyenGopDTOShow>(dtoShow, HttpStatus.CREATED);
+		
+//		CtQuyenGopDTOShow dtoShow = CtQuyenGopDTOShow.convertToDto(service.getCtQuyenGopById(ct.getId()));
+			
+		
+		return new ResponseEntity<CtQuyenGop>(ct, HttpStatus.CREATED);
 	}
 	
 	

@@ -20,3 +20,6 @@ export const USER_LOGIN_INFO = "USER_LOGIN_INFO";
 
 // ctquyengop
 export const GET_LIST_CTQUYENGOP = "GET_LIST_CTQUYENGOP";
+
+// groups
+export const GET_LIST_QuyenGopManagement = "GET_LIST_QuyenGopManagement";
