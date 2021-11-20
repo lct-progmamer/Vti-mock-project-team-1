@@ -6,10 +6,6 @@ public class ImageQuenGopDto {
 
 	private String name;
 	
-	private String discriptions;
-
-
-	
 	public ImageQuenGopDto() {
 		super();
 	}
@@ -17,10 +13,9 @@ public class ImageQuenGopDto {
 	
 	
 
-	public ImageQuenGopDto(String name, String discriptions) {
+	public ImageQuenGopDto(String name) {
 		super();
 		this.name = name;
-		this.discriptions = discriptions;
 	}
 
 
@@ -34,18 +29,10 @@ public class ImageQuenGopDto {
 		this.name = name;
 	}
 
-	public String getDiscriptions() {
-		return discriptions;
-	}
 
-	public void setDiscriptions(String discriptions) {
-		this.discriptions = discriptions;
-	}
-	
 	public static ImageQuenGopDto convertToImageDto(ImageQuyenGop img) {
 		ImageQuenGopDto dto = new ImageQuenGopDto();
 		dto.setName(img.getName());
-		dto.setDiscriptions(img.getDiscriptionImage());
 		return dto;
 	}
 	

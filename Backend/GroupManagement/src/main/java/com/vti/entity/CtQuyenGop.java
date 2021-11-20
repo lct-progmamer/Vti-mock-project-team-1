@@ -39,10 +39,10 @@ public class CtQuyenGop implements Serializable{
 	private String description;
 	
 	
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	private Date Date_Start;
 	
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	private Date Date_End;
 	
 	@Column(name = "Tong_tien_quyen_gop" , nullable = false , columnDefinition = "int default 100000")
@@ -65,18 +65,13 @@ public class CtQuyenGop implements Serializable{
 	
 	
 
-	public CtQuyenGop(String name, String description, Date date_Start, Date date_End, int tienQuyenGop, float status,
-			List<ImageQuyenGop> images, List<UserQuyenGop> ctrinhs, List<nganHangTuThien> nganHangs) {
+	public CtQuyenGop(String name, String description, Date date_Start, Date date_End, int tienQuyenGop) {
 		super();
 		this.name = name;
 		this.description = description;
 		Date_Start = date_Start;
 		Date_End = date_End;
 		this.tienQuyenGop = tienQuyenGop;
-		this.status = status;
-		this.images = images;
-		this.ctrinhs = ctrinhs;
-		this.nganHangs = nganHangs;
 	}
 
 	public CtQuyenGop() {

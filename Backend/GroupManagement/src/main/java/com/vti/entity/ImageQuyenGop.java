@@ -34,8 +34,6 @@ public class ImageQuyenGop implements Serializable{
 	@Column(name = "name" , length = 500 , unique = false , nullable = false)
 	private String name;
 
-	@Column(name = "Discription_Image", length = 800 , nullable = false)
-	private String discriptionImage;
 
 	@ManyToOne
 	@JoinColumn(name = "Ct_quyen_gop_Id" , nullable = false)
@@ -46,10 +44,9 @@ public class ImageQuyenGop implements Serializable{
 		this.ctQuyenGop = ctQuyenGop;
 	}
 
-	public ImageQuyenGop(String name, String discriptionImage, CtQuyenGop ctQuyenGop) {
+	public ImageQuyenGop(String name, CtQuyenGop ctQuyenGop) {
 		super();
 		this.name = name;
-		this.discriptionImage = discriptionImage;
 		this.ctQuyenGop = ctQuyenGop;
 	}
 
@@ -75,17 +72,7 @@ public class ImageQuyenGop implements Serializable{
 		this.name = name;
 	}
 
-	public String getDiscriptionImage() {
-		return discriptionImage;
-	}
 
-	public void setDiscriptionImage(String discriptionImage) {
-		this.discriptionImage = discriptionImage;
-	}
-
-	
-	
-	
 	
 	public CtQuyenGop getCtQuyenGop() {
 		return ctQuyenGop;

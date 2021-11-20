@@ -39,6 +39,8 @@ public class ImageQuyenGopController {
 	@Autowired
 	private ICtQuyenGopService quyenGopService;
 	
+
+	
 	
 	@GetMapping()
 	public ResponseEntity<?> getAllImageQuyenGops(){
@@ -63,22 +65,14 @@ public class ImageQuyenGopController {
 	
 	
 	@PostMapping()
-	public ResponseEntity<?> createImageQuyenGop(@RequestParam("CtQuyenGopId") int CtQuyenGopId ,@RequestParam("discription") String discription ,@RequestParam(name = "image") MultipartFile image) throws IOException{
+	public ResponseEntity<?> createImageQuyenGop(@RequestParam("CtQuyenGopId") int CtQuyenGopId,@RequestParam(name = "image") MultipartFile image) throws IOException{
 		
 		if (!new FileManager().isTypeFileImage(image)) {
 			return new ResponseEntity<>("File must be image!", HttpStatus.UNPROCESSABLE_ENTITY);
 		}
-		String name = fileService.uploadImage(image);
-		CtQuyenGop quyengop = quyenGopService.getCtQuyenGopById(CtQuyenGopId);
+		service.createImageQuyenGop(CtQuyenGopId,image);
 		
-		ImageQuyenGopDtoCreate dtoCreate = new ImageQuyenGopDtoCreate();
-		dtoCreate.setDiscription(discription);
-		dtoCreate.setCtQuyenGop(quyengop);
-		dtoCreate.setName(name);
-		
-		service.createImageQuyenGop(dtoCreate.toImageQuyenGop());
-		
-		return new ResponseEntity<ImageQuenGopDto>(ImageQuenGopDto.convertToImageDto(dtoCreate.toImageQuyenGop()),HttpStatus.CREATED);
+		return new ResponseEntity<String>("create success",HttpStatus.CREATED);
 	}
 
 }
