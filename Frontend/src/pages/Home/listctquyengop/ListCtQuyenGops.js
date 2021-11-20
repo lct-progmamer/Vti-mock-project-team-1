@@ -113,7 +113,7 @@ function ListCtQuyenGops(props) {
     // };
 
     const linkToDetail = (id) =>{
-        history.push(`/home/${id}`)
+        history.push(`/detail/${id}`)
     }
 
 
@@ -128,13 +128,11 @@ function ListCtQuyenGops(props) {
             {
                 currentItems?.map((items, index) =>
 
-                    <div className="col-4 mb-12">
-                        <div className="listCtquyengop" key={index}>
+                    <div className="col-4 mb-12" key={index}>
+                        <div className="listCtquyengop" >
                             {/* <img className="img" src={`${api.serverUrl}/${items.images[0].name}`} alt={items.images[0].name} /> */}
                             <div>
-                                <Carousel animation="zoom" autoplay="true" autoplayInterval="1000"
-                                    
-                                >
+                                <Carousel animation="zoom" autoplay="true" autoplayInterval="1000">
                                     {
                                         items.images?.map((img , index) => {
                                             return <img key={index} className="img" src={`${api.serverUrl}/${img.name}`} alt={img.name}/>

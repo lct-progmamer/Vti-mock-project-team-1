@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import api from "../../api/CtQuyenGopApi";
-import Carousel from "react-elastic-carousel";
+import Carousel from 'nuka-carousel';
 import {Link , useParams} from "react-router-dom";
 import "./CtQuyenGopCss.scss";
 import {
@@ -17,6 +17,8 @@ import {
     ModalFooter,
     ModalHeader,
 } from "reactstrap";
+import Footer from "./HeaderAndFooter/Footer";
+import Header from "./HeaderAndFooter/Header";
 
 const CtQuyenGopDetail = () => {
 
@@ -25,12 +27,13 @@ const CtQuyenGopDetail = () => {
     const [IsShow, setisShow] = useState(false);
     let {id} = useParams();
 
+    console.log(id);
     useEffect(() => {
-
-        axios.get(`${api.url}/${id}`)
+        
+        axios.get(`http://localhost:8080/api/v1/ctquyengops/${id}`)
             .then(res => setQuyenGop(res.data))
             .catch(res => console.log(res.data))
-    }, [])
+    }, [id])
 
 
 
@@ -42,19 +45,20 @@ const CtQuyenGopDetail = () => {
     return (
 
         <>
-            <div>
-                <h3>{QuyenGop.name}</h3>
+            <Header />
+            <Container>
+            <div className="mt-5">
+                <h3 className="mb-5">{QuyenGop.name}</h3>
                 <h5>Thời gian bắt đầu : {QuyenGop.dayStart}/{QuyenGop.monthStart}/{QuyenGop.yearStart}</h5>
 
             </div>
             <hr />
             <h5>Hình ảnh câu chuyện : </h5><br />
-            <Carousel>
+            <Carousel animation="zoom" autoplay="true" autoplayInterval="1000">
                 {
-                    QuyenGop.images?.map((img, index) => {
-                        return <img src={img.name} alt="1" className="img" key={index} />
+                    QuyenGop.images?.map((img , index) => {
+                        return <img key={index} width="278" height="400" src={`${api.serverUrl}/${img.name}`} alt={img.name}/>
                     })
-
                 }
             </Carousel>
             <hr />
@@ -105,7 +109,7 @@ const CtQuyenGopDetail = () => {
                                 <img id="img-ht2" height="150" width="250" src="http://getplugd.com/blog/content/images/2020/07/paypal.png" alt="paypal" />
                             </div>
                             <div className="htQG">
-                                <Link to={`/${QuyenGop.id}/byChuyenKhoan`}><img id="img-ht3" height="150" width="250" src="https://lsvn.vn/uploads/files/1014/5ffe70974e2d2.jpg" alt="chuyenKhoan" /></Link>
+                                <Link to={`/detail/${QuyenGop.id}/byPay`}><img id="img-ht3" height="150" width="250" src="https://lsvn.vn/uploads/files/1014/5ffe70974e2d2.jpg" alt="chuyenKhoan" /></Link>
                             </div>
                         </div>
                         <span>
@@ -117,6 +121,8 @@ const CtQuyenGopDetail = () => {
                     <Button color='secondary' onClick={OpenModalQyenGop}>Quay Lại</Button>
                 </ModalFooter>
             </Modal>
+            </Container>
+            <Footer />
         </>
 
 
