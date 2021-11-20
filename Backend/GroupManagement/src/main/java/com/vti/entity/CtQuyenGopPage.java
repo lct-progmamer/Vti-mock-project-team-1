@@ -44,10 +44,10 @@ public class CtQuyenGopPage implements Serializable{
 	private String description;
 	
 	
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	private Date Date_Start;
 	
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	private Date Date_End;
 	
 	@Column(name = "Tong_tien_quyen_gop" , nullable = false , columnDefinition = "int default 100000")

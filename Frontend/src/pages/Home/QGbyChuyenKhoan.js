@@ -17,8 +17,6 @@ import {
     ModalFooter,
     ModalHeader,
 } from "reactstrap";
-import Header from "./HeaderAndFooter/Header";
-import Footer from "./HeaderAndFooter/Footer";
 
 
 const QGbyChuyenKhoan = () => {
@@ -32,8 +30,8 @@ const QGbyChuyenKhoan = () => {
     const textAreaRef = useRef(null); 
   
     useEffect(() => {
-        console.log(id);
-        axios.get(`http://localhost:8080/api/v1/ctquyengops/${id}`)
+        // console.log(id);
+        axios.get(`${api.url}/${1}`)
             .then(res => {
                 setNganHang(res.data.nganHangs);
                 setTenChuongTrinh(res.data.nganHangs[0].tenChuongTrinh);
@@ -76,9 +74,8 @@ const QGbyChuyenKhoan = () => {
     return(
 
         <>
-            <Header />
-            <Container className="container mt-5">
-                <h2 className="donation_title mb-5">{tenChuongTrinh}</h2>
+            <Container className="container">
+                <h2 className="donation_title">{tenChuongTrinh}</h2>
                 <h5 className="bank_title">
                     Lựa Chọn Ngân Hàng
                 </h5>
@@ -111,10 +108,9 @@ const QGbyChuyenKhoan = () => {
                     }
                     
                     
-                    <Link to={`/detail/${id}`}><Button className="btn-back" color="primary">Quay Lại</Button></Link>
+                    <Link to={`/ctquyengops/${id}`}><Button className="btn-back" color="primary">Quay Lại</Button></Link>
                </div>
             </Container>
-            <Footer />
         </>
 
 
