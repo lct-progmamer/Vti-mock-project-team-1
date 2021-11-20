@@ -2,7 +2,7 @@
 import axios from "axios";
 import React, { useEffect, useState ,useRef } from "react";
 import {Link, useParams} from "react-router-dom";
-import api from "../../api/ctQuyenGopApi";
+import api from "../../api/CtQuyenGopApi";
 import "./ChuyenKhoanCss.scss";
 import { toastr } from "react-redux-toastr";
 import {
@@ -17,6 +17,8 @@ import {
     ModalFooter,
     ModalHeader,
 } from "reactstrap";
+import Header from "./HeaderAndFooter/Header";
+import Footer from "./HeaderAndFooter/Footer";
 
 
 const QGbyChuyenKhoan = () => {
@@ -30,8 +32,8 @@ const QGbyChuyenKhoan = () => {
     const textAreaRef = useRef(null); 
   
     useEffect(() => {
-        // console.log(id);
-        axios.get(`${api.url}/${1}`)
+        console.log(id);
+        axios.get(`http://localhost:8080/api/v1/ctquyengops/${id}`)
             .then(res => {
                 setNganHang(res.data.nganHangs);
                 setTenChuongTrinh(res.data.nganHangs[0].tenChuongTrinh);
@@ -74,8 +76,9 @@ const QGbyChuyenKhoan = () => {
     return(
 
         <>
-            <Container className="container">
-                <h2 className="donation_title">{tenChuongTrinh}</h2>
+            <Header />
+            <Container className="container mt-5">
+                <h2 className="donation_title mb-5">{tenChuongTrinh}</h2>
                 <h5 className="bank_title">
                     Lựa Chọn Ngân Hàng
                 </h5>
@@ -108,9 +111,10 @@ const QGbyChuyenKhoan = () => {
                     }
                     
                     
-                    <Link to={`/ctquyengops/${id}`}><Button className="btn-back" color="primary">Quay Lại</Button></Link>
+                    <Link to={`/detail/${id}`}><Button className="btn-back" color="primary">Quay Lại</Button></Link>
                </div>
             </Container>
+            <Footer />
         </>
 
 
