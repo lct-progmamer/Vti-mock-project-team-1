@@ -49,7 +49,9 @@ public class CtQuyenGopController {
 	public ResponseEntity<?> getAllCtQuyenGops(Parameters parameters){
 		
 		List<CtQuyenGop> quyengops = service.getAllCtQuyenGops( parameters);
+		
 		List<CtQuyenGopDTOShow> quyengopshows = new ArrayList<>();
+		
 		for(CtQuyenGop ctQuyenGop : quyengops) {
 			CtQuyenGopDTOShow dtoShow = CtQuyenGopDTOShow.convertToDto(ctQuyenGop);
 			quyengopshows.add(dtoShow);
@@ -106,8 +108,7 @@ public class CtQuyenGopController {
 		bankService.createNganHangTuThien(ct.getId(),bankName1,stk1,imageBank1);
 		bankService.createNganHangTuThien(ct.getId(),bankName2,stk2,imageBank2);
 
-		
-
+	
 
 		return new ResponseEntity<CtQuyenGop>(ct, HttpStatus.CREATED);
 	}

@@ -1,6 +1,7 @@
 
 import React from "react";
-
+import Header from "../HeaderAndFooter/Header";
+import Footer from "../HeaderAndFooter/Footer";
 import ListCtQuyenGops from "../listctquyengop/ListCtQuyenGops";
 import "./HomePage.scss";
 const HomePage = () => {
@@ -10,6 +11,7 @@ const HomePage = () => {
     return (
 
         <>
+            <Header />
             <div className="container">
               
                 <div className="row">
@@ -20,11 +22,8 @@ const HomePage = () => {
                 <div className="row">
                     <ListCtQuyenGops/>
                 </div>
-
-
-
-
             </div>
+            <Footer />
         </>
 
     );

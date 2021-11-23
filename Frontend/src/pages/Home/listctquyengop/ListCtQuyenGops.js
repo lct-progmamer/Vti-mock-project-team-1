@@ -4,13 +4,34 @@ import "./ListItemCtQuyenGops.scss";
 import { connect } from "react-redux";
 import { getlistCtQuyenGopAction } from '../../../redux/actions/CtQuyenGopAction';
 import { selectListCtQuyenGop } from '../../../redux/selectors/CtQuyenGopSelector';
+import Carousel from 'nuka-carousel';
+import api from "../../../api/CtQuyenGopApi";
+import {
+    Button,
+    Card,
+    CardBody,
+    Col,
+    Container,
+    Row,
+    Modal,
+    ModalBody,
+    ModalFooter,
+    ModalHeader,
+} from "reactstrap";
+import { useHistory } from "react-router";
+import { idea } from "react-syntax-highlighter/dist/esm/styles/hljs";
+
+
+
+
+
 function ListCtQuyenGops(props) {
 
 
 
     const getListCtQuyenGops = props.getlistCtQuyenGopAction;
     const data = props.ctquyengops;
-    console.log(data);
+    const history = useHistory();
 
 
     const [currentPage, setcurrentPage] = useState(1);
@@ -24,7 +45,6 @@ function ListCtQuyenGops(props) {
 
 
     useEffect(() => {
-
         getListCtQuyenGops();
     }, [getListCtQuyenGops]);
 
@@ -96,29 +116,50 @@ function ListCtQuyenGops(props) {
     //   setitemsPerPage(itemsPerPage + 3);
     // };
 
+    const linkToDetail = (id) =>{
+        history.push(`/detail/${id}`)
+    }
+
+
+
+
+
     return (
         <>
 
             {/* {renderData(currentItems)} */}
-
+            
             {
                 currentItems?.map((items, index) =>
 
-                    <div className="col-4 mb-12">
-                        <div className="listCtquyengop" key={index}>
-                            <img className="img" src={`http://127.0.0.1:8887/${items.images[0].name}`} alt="" />
-                             {console.log(items.images[0].name)} 
+                    <div className="col-4 mb-12" key={index}>
+                        <div className="listCtquyengop" >
+                            {/* <img className="img" src={`${api.serverUrl}/${items.images[0].name}`} alt={items.images[0].name} /> */}
+                            <div>
+                                <Carousel animation="zoom" autoplay="true" autoplayInterval="1000">
+                                    {
+                                        items.images?.map((img , index) => {
+                                            return <img key={index} className="img" src={`${api.serverUrl}/${img.name}`} alt={img.name}/>
+                                        })
+                                    }
+                                </Carousel>
+                            </div>
+
+                            
                             <div className="b">
-                                <b > {items.name}</b>
+                                <b > {items.name.substring(0,40)}...</b>
                             </div>
                             <div className="p">
                          
                                 <ul>
                                     <li> Ngày bắt đầu:{items.dayStart}/{items.monthStart}/{items.yearStart}</li>
-                                    <li> Ngày kết thúc:{items.dayEnd}/{items.monthEnd}/{items.yearEnd}</li>
+                                    <li> ngày kết thúc:{items.dayEnd}/{items.monthEnd}/{items.yearEnd}</li>
                                 </ul>
 
 
+                            </div>
+                            <div >
+                                <Button className="button-detail"  color="primary" onClick={() => linkToDetail(items.id)}>Xem Chi Tiết</Button>
                             </div>
 
                         </div>
@@ -154,6 +195,8 @@ function ListCtQuyenGops(props) {
             {/* <button onClick={handleLoadMore} className="loadmore">
           Load More
         </button> */}
+            
+            
         </>
     );
 }

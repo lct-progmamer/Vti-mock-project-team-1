@@ -15,7 +15,7 @@ export const getlistCtQuyenGopAction = () => {
   return async dispatch => {
     try {
       console.log("có em");
-      const ctquyengops = await CtQuyenGopApi.getCtQuyenGop();
+      const ctquyengops = await CtQuyenGopApi.getAll();
       // const ctquyengops = json.content;
     //   const totalElement = json.totalElements;
       dispatch(listCtQuyenGopAction(ctquyengops));

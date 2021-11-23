@@ -20,6 +20,8 @@ import {
 import CtQuyenGopDetail from "../pages/Home/CtQuyenGopDetail";
 import HomePage from "../pages/Home/homepage/HomePage";
 import QGbyChuyenKhoan from "../pages/Home/QGbyChuyenKhoan";
+
+
 // Auth
 import SignIn from "../pages/auth/SignIn";
 import SignUp from "../pages/auth/SignUp";
@@ -136,9 +138,8 @@ const VectorMaps = async(() =>
     import("../pages/maps/VectorMaps"));
 const GoogleMaps = async(() =>
     import("../pages/maps/GoogleMaps"));
-
-// Chuong trinh quyen gop
-
+const QuyenGopManagement = async(() =>
+    import ("../pages/Ctquyengopmanagement/QuyenGopManagement")); 
 
 
 
@@ -173,26 +174,18 @@ const QuyenGopRoutes = {
         component: QGbyChuyenKhoan
     },
 
+  
     ]
 
 }
 
-
-
-// [
-//     {
-//         path: "/home",
-//         name: "Home",
-//         component: ListCtQuyenGops,
-//         children : [
-//             {
-//                 path: "/home/:id",
-//                 name: "CtQuyenGopDetail",
-//                 component: CtQuyenGopDetail,  
-//             }
-//         ] 
-//     }
-// ]
+const QuyenGopMangementRoutes = {
+    path: "/ctquyengopmanagement",
+    name: "Quyen Gop Management",
+    
+    component: QuyenGopManagement,
+    children: null
+};
 
 
 
@@ -662,6 +655,7 @@ const SettingsRoutes = {
 
 // Dashboard specific routes
 export const dashboard = [
+    QuyenGopMangementRoutes
     // dashboardRoutes,
     // pageRoutes,
     // layoutRoutes,
@@ -691,6 +685,7 @@ export const page = [authRoutes];
 
 // All routes
 export default [
+    QuyenGopMangementRoutes
     // pageRoutes, 
     // authRoutes,
     // layoutRoutes,

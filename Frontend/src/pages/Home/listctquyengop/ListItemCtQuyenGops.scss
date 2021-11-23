@@ -1,69 +1,74 @@
 .listCtquyengop{
-    border-radius: 5px;
-   
-    background-color: #fff;
-    width: 280px;
-    height: 400px;
-    margin-bottom: 50px;
-    border-style: solid;
-    border-width: 0.1px;
-    border-color:greenyellow;
+  border-radius: 5px;
  
+  background-color: #fff;
+  width: 280px;
+  height: 400px;
+  margin-bottom: 50px;
+  border-style: solid;
+  border-width: 0.1px;
+  border-color:greenyellow;
+
 }
 
 .img{
-    width: 278px;
-    height: 250px;
-   
+  width: 278px;
+  height: 250px;
+ 
 }
 .b{
-    margin-left: 10px;
+  margin-left: 10px;
 }
 .p{
-  margin-left: 10px;
+margin-left: 10px;
 }
 
 .pageNumbers {
-    list-style: none;
-    display: flex;
-    width: 42px;
-    
-  }
+  list-style: none;
+  display: flex;
+  width: 42px;
   
-  .pageNumbers li {
-    padding: 10px;
-    border: 1px solid greenyellow;
-    cursor: pointer;
-  }
+}
+
+.pageNumbers li {
+  padding: 10px;
+  border: 1px solid greenyellow;
+  cursor: pointer;
+}
+
+.pageNumbers li.active {
+  background-color: greenyellow;
+  color: black;
+}
+
+.pageNumbers li button {
+ 
+  border: none;
+  color: black;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.pageNumbers li button:hover {
+  background-color: white;
+  color: black;
+}
+.pageNumbers li button:focus {
+  outline: none;
   
-  .pageNumbers li.active {
-    background-color: greenyellow;
-    color: black;
-  }
-  
-  .pageNumbers li button {
-   
-    border: none;
-    color: black;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-  .pageNumbers li button:hover {
-    background-color: white;
-    color: black;
-  }
-  .pageNumbers li button:focus {
-    outline: none;
-    
-  }
-  
-  /* .loadmore {
-    padding: 1rem;
-    background-color: transparent;
-  
-    color: white;
-    font-size: 1.2rem;
-    border: 1px solid white;
-    cursor: pointer;
-  } */
-  
+}
+
+/* .loadmore {
+  padding: 1rem;
+  background-color: transparent;
+
+  color: white;
+  font-size: 1.2rem;
+  border: 1px solid white;
+  cursor: pointer;
+} */
+
+.button-detail{
+
+  width:280px;
+
+}
