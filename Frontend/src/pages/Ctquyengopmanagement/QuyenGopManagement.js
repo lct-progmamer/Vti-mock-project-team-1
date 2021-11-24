@@ -329,19 +329,14 @@ const QuyenGopManagement = (props) => {
                      Ngày bắt đầu:
                   </Col>
                   <Col>
-                  <FastField bsSize="large"  name="start"  placeholder="Ngày bắt đầu">
-                    {
-                        ({ field, form, meta }) => {
-                              return(
-                                  <div>
-                                      <label htmlFor="start">Ngày bắt đầu</label>
-                                      <input type="Date" {...field}/>
-                                      {/* {meta.touched && meta.error && <div>{meta.error}</div>} */}
-                                  </div>
-                              );
-                          }
-                    }
-                    </FastField>
+                  <FastField
+                      bsSize="large"
+                      type="date"
+                      name="start"
+                      placeholder="Ngày kết thúc"
+                      component={ReactstrapInput}
+                    />
+                    
                   </Col>
                 </Row>
 
@@ -367,11 +362,11 @@ const QuyenGopManagement = (props) => {
                      Image1 CT:
                   </Col>
                   <Col>
-                   <img
-                      src={previewUrl1 ? previewUrl1 : defaultImage}
+                   {previewUrl1 ? <img
+                      src={previewUrl1}
                       width="128"
                       height="128"
-                    />
+                    /> : null }
                     <br/>
                     <FastField bsSize="large"  name="image1"  placeholder="image1">
                     {
@@ -395,11 +390,11 @@ const QuyenGopManagement = (props) => {
                      Image2 CT:
                   </Col>
                   <Col>
-                    <img
-                      src={previewUrl2 ? previewUrl2 : defaultImage}
+                  {previewUrl2 ? <img
+                      src={previewUrl2}
                       width="128"
                       height="128"
-                    />
+                    /> : null }
                     <br/>
                     <FastField  bsSize="large"  name="image2"  placeholder="image2">
                     {
@@ -422,11 +417,11 @@ const QuyenGopManagement = (props) => {
                      Image3 CT:
                   </Col>
                   <Col>
-                  <img
-                      src={previewUrl3 ? previewUrl3 : defaultImage}
+                  {previewUrl3 ? <img
+                      src={previewUrl3}
                       width="128"
                       height="128"
-                    />
+                    /> : null }
                     <br/>
                   <FastField  bsSize="large"  name="image3"  placeholder="image3">
                     {
@@ -467,13 +462,11 @@ const QuyenGopManagement = (props) => {
                      Ảnh Bank1:
                   </Col>
                   <Col>
-                  <img
-              
-                      src={previewUrl4 ? previewUrl4 : defaultImage}
-                    
+                  {previewUrl4 ? <img
+                      src={previewUrl4}
                       width="128"
                       height="128"
-                    />
+                    /> : null }
                     <br/>
                   <FastField  bsSize="large"  name="imageBank1"  placeholder="imageBank1">
                     {
@@ -529,11 +522,11 @@ const QuyenGopManagement = (props) => {
                      Ảnh Bank2:
                   </Col>
                   <Col>
-                  <img
-                      src={previewUrl5 ? previewUrl5 : defaultImage}
+                  {previewUrl5 ? <img
+                      src={previewUrl5}
                       width="128"
                       height="128"
-                    />
+                    /> : null }
                     <br/>
                   <FastField  bsSize="large"  name="imageBank2"  placeholder="imageBank2">
                     {

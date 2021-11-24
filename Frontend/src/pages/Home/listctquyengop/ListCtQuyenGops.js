@@ -125,10 +125,7 @@ function ListCtQuyenGops(props) {
 
 
     return (
-        <>
-
-            {/* {renderData(currentItems)} */}
-            
+        <> 
             {
                 currentItems?.map((items, index) =>
 

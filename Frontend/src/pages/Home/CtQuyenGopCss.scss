@@ -24,8 +24,7 @@ fieldset {
     border-radius: 5%;
     box-shadow: 5px 5px #ababab;
 }
-
-.card-dongtien {
+.card-dongtien1{
     margin-left: 50px;
     width: 100%;
     text-align: center;
@@ -33,6 +32,16 @@ fieldset {
     height: 200px;
     padding: 10px;
     margin-bottom: 10px;
+}
+.card-dongtien {
+    margin-left: 50px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid #ababab;
+    height: 400px;
+    padding: 10px;
+    margin-bottom: 10px;
+    overflow: scroll;
 }
 
 .title_dongTien {
@@ -70,3 +79,19 @@ fieldset {
 #img-ht3:hover {
     border: 5px solid green;
 }
+
+.errorMessage{
+    color: red;
+    font-style: italic;
+    font-size: 5;
+}
+
+.other:hover{
+    border: 2px solid green;
+}
+
+.otherName{
+    text-decoration: none;
+
+}
+

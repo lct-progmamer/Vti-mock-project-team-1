@@ -23,16 +23,21 @@ import Header from "./HeaderAndFooter/Header";
 const CtQuyenGopDetail = () => {
 
     const [QuyenGop, setQuyenGop] = useState({});
-
+    const [others , setOthers] = useState([]);
     const [IsShow, setisShow] = useState(false);
     let {id} = useParams();
 
-    console.log(id);
     useEffect(() => {
         
         axios.get(`http://localhost:8080/api/v1/ctquyengops/${id}`)
             .then(res => setQuyenGop(res.data))
             .catch(res => console.log(res.data))
+
+        axios.get(`http://localhost:8080/api/v1/ctquyengops`)
+            .then(res => setOthers(res.data))
+            .catch(res => console.log(res));
+        
+
     }, [id])
 
 
@@ -75,9 +80,6 @@ const CtQuyenGopDetail = () => {
                                 <h4>Số tiền quyên góp : {QuyenGop.tongTien} VND</h4>
                             </div>
                         </div>
-
-
-
                         <fieldset>
                             <h4><legend>Tóm Tắt Hoàn Cảnh : </legend></h4>
                             <p>{QuyenGop.discription}</p>
@@ -85,17 +87,37 @@ const CtQuyenGopDetail = () => {
 
                     </Col>
                     <Col xs="4">
-                        <div className="card-dongtien">
+                        <div className="card-dongtien1">
                             <h4 className="title_dongTien">Thực hiện Quyên Góp</h4>
                             <Button color="primary" className="button_dongTien">Hướng Dẫn Quyên Góp</Button>
                             <Button color="success" className="button_dongTien" onClick={() => OpenModalQyenGop()}>Quyên Góp Ngay</Button>
                         </div>
 
                         <div className="card-dongtien">
+                            {
+                                others?.map((items) => {
+                                    if(items.id != id)
+                                    {
+                                        return (
+                                            <Card className="other">
+                                                <CardBody width="100">
+                                                    <Link to={`/detail/${items.id}`}>
+                                                        <img width="200" height="100" src={`${api.serverUrl}/${items.images[0].name}`}  alt={items.images[0].name}/>
+                                                        <h6 className="otherName">{items.name.substring(0,30)}...</h6>
+                                                    </Link>
+                                                </CardBody>
+                                            </Card>
 
+                                        );
+                                    }
+                                })
+                            }
                         </div>
                     </Col>
                 </Row>
+                <div>    
+                    <Link to={`/`}><Button className="btn-back" color="primary">Quay Lại</Button></Link>
+                </div>
             </>
             <Modal isOpen={IsShow} toggle={OpenModalQyenGop} size="lg">
                 <ModalHeader>Các Hình Thức Quyên Góp</ModalHeader>
