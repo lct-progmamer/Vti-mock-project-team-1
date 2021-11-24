@@ -45,7 +45,7 @@ CREATE TABLE `CT_QUYEN_GOP`(
 	Discription_Quyen_gop   							VARCHAR(2000) NOT NULL,
 	Date_Start     										DATETIME DEFAULT(NOW()),
 	Date_End        									DATETIME DEFAULT(NOW()),
-	Tong_tien_quyen_gop									INT UNSIGNED NOT NULL DEFAULT(100000),
+	Tong_tien_quyen_gop									INT UNSIGNED  DEFAULT(0),
 	`Status`                   							FLOAT UNSIGNED DEFAULT(0)
 );
 

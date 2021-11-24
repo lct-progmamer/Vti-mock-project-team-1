@@ -1,6 +1,8 @@
 package com.vti.dto;
 
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -12,9 +14,9 @@ public class CtQuyenGopDtoCreate {
 	
 	private String name;
 	
-	private Date start;
+	private String start;
 	
-	private Date end;
+	private String end;
 	
 	private String discription;
 	
@@ -26,12 +28,9 @@ public class CtQuyenGopDtoCreate {
 		super();
 	}
 	
-	
-	
-	
 
-	public CtQuyenGopDtoCreate(String name, Date start, Date end, String discription, int tongTien, float status
-			) {
+
+	public CtQuyenGopDtoCreate(String name, String start, String end, String discription, int tongTien, float status) {
 		super();
 		this.name = name;
 		this.start = start;
@@ -47,29 +46,35 @@ public class CtQuyenGopDtoCreate {
 	}
 
 
+
 	public void setName(String name) {
 		this.name = name;
 	}
 
 
-	public Date getStart() {
+
+	public String getStart() {
 		return start;
 	}
 
 
-	public void setStart(Date start) {
+
+	public void setStart(String start) {
 		this.start = start;
 	}
 
 
-	public Date getEnd() {
+
+	public String getEnd() {
 		return end;
 	}
 
 
-	public void setEnd(Date end) {
+
+	public void setEnd(String end) {
 		this.end = end;
 	}
+
 
 
 	public String getDiscription() {
@@ -77,9 +82,11 @@ public class CtQuyenGopDtoCreate {
 	}
 
 
+
 	public void setDiscription(String discription) {
 		this.discription = discription;
 	}
+
 
 
 	public int getTongTien() {
@@ -87,14 +94,17 @@ public class CtQuyenGopDtoCreate {
 	}
 
 
+
 	public void setTongTien(int tongTien) {
 		this.tongTien = tongTien;
 	}
 
 
+
 	public float getStatus() {
 		return status;
 	}
+
 
 
 	public void setStatus(float status) {
@@ -103,13 +113,19 @@ public class CtQuyenGopDtoCreate {
 
 
 
-	public CtQuyenGop toCtQuyenGop() {
+	public CtQuyenGop toCtQuyenGop() throws ParseException {
+		
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+	      //Parsing the given String to Date object
+	    Date dateStart = formatter.parse(start);
+		Date dateEnd = formatter.parse(end);
+		
+		
 		CtQuyenGop ct = new CtQuyenGop();
 		ct.setName(name);
-		ct.setDate_Start(start);
-		ct.setDate_End(end);
+		ct.setDate_Start(dateStart);
+		ct.setDate_End(dateEnd);
 		ct.setDescription(name);
-		ct.setTienQuyenGop(tongTien);
 		return ct;
 	}
 

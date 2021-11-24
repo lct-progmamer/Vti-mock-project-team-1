@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import defaultImage from "../images/836489444127.jpg";
 import {
   Button,
   Card,
@@ -58,13 +59,69 @@ const QuyenGopManagement = (props) => {
     },
 
   ];
-
-
-
   //create
   const [isOpenModal, setOpenModal] = useState(false);
+  const [image1 , setImage1] = useState();
+  const [previewUrl1 , setPreviewUrl1] = useState();
+  const [image2 , setImage2] = useState();
+  const [previewUrl2 , setPreviewUrl2] = useState();
+  const [image3 , setImage3] = useState();
+  const [previewUrl3 , setPreviewUrl3] = useState();
+  const [imageBank1 , setImageBank1] = useState();
+  const [previewUrl4 , setPreviewUrl4] = useState();
+  const [imageBank2 , setImageBank2] = useState();
+  const [previewUrl5 , setPreviewUrl5] = useState();
 
+  const SetImage1 = (e) =>{
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
 
+    reader.onloadend = (e) => {
+      setPreviewUrl1(reader.result);
+      setImage1(file);
+    };
+  }
+  const SetImage2 = (e) =>{
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.onloadend = (e) => {
+      setPreviewUrl2(reader.result);
+      setImage2(file);
+    };
+  }
+  const SetImage3 = (e) =>{
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.onloadend = (e) => {
+      setPreviewUrl3(reader.result);
+      setImage3(file);
+    };
+  }
+  const SetImageBank1 = (e) =>{
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.onloadend = (e) => {
+      setPreviewUrl4(reader.result);
+      setImageBank1(file);
+    };
+  }
+  const SetImageBank2 = (e) =>{
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.onloadend = (e) => {
+      setPreviewUrl5(reader.result);
+      setImageBank2(file);
+    };
+  }
 
   const showSuccessNotification = (title, message) => {
     const options = {
@@ -78,7 +135,17 @@ const QuyenGopManagement = (props) => {
     toastr.success(title, message, options);
   }
 
+  const showErrorNotification = (title, message) => {
+    const options = {
+      timeOut: 2500,
+      showCloseButton: false,
+      progressBar: false,
+      position: "top-right"
+    };
 
+    // show notification
+    toastr.error(title, message, options);
+  }
 
   const handleTableChange = (type, { page, sizePerPage }) => {
     getListQuyenGopManagements(page, sizePerPage);
@@ -110,8 +177,6 @@ const QuyenGopManagement = (props) => {
               </div>
             </Col>
           </Row>
-
-
 
           <BootstrapTable
             keyField="name"
@@ -152,15 +217,14 @@ const QuyenGopManagement = (props) => {
               start: '',
               end : '',
               discrip : '',
-              tongTien : '',
-              image1 : '',
-              image2 : '',
-              image3 : '',
+              image1 : File,
+              image2 : File,
+              image3 : File,
               bankName1 : '',
-              imageBank1 :'',
+              imageBank1 :File,
               stk1 : '',
               bankName2 : '',
-              imageBank2 :'',
+              imageBank2 : File,
               stk2 : ''
             }
           }
@@ -176,56 +240,41 @@ const QuyenGopManagement = (props) => {
           //       })
           //   })
           // }
-
-
           onSubmit={
             async (values) => {
+              console.log(values);
               try {
-
-                
-               
-
-                // call api
                 const name = values.name
                 const start = values.start
                 const end = values.end
                 const discrip = values.discrip
-                const tongTien = values.tongTien
-                const image1 = values.image1
-                const image2 = values.image2
-                const image3 = values.image3
+                const Image1 = image1
+                const Image2 = image2
+                const Image3 = image3
                 const bankName1 = values.bankName1 
-                const imageBank1 = values.imageBank1
+                const ImageBank1 = imageBank1
                 const stk1 = values.stk1
                 const bankName2 = values.bankName2
-                const imageBank2 = values.imageBank2
+                const ImageBank2 = imageBank2
                 const stk2 = values.stk2
-
+                
 
                 await QuyenGopManagementApi.create(name,start,
-                  end,discrip,tongTien,
-                  image1,image2,image3,
-                  bankName1,imageBank1,stk1,
-                  bankName2,imageBank2,stk2                 
+                  end,discrip,
+                  Image1,Image2,Image3,
+                  bankName1,ImageBank1,stk1,
+                  bankName2,ImageBank2,stk2                 
                   );
-
-                  // await QuyenGopManagementApi.create( formdata );
+                
                 setOpenModal(false);
-                // show notification
-                showSuccessNotification(
-                  "Create QuyenGopManagement",
-                  "Create QuyenGopManagement Successfully!");
-                // reload QuyenGopManagement page
+                showSuccessNotification("Tạo Thành Công !!!");
                 // refreshForm();
-
               } catch (error) {
-                console.log(error);
                 setOpenModal(false);
+                showErrorNotification("Đã xảy ra lỗi gì đó !!!");
               }
             }
           }
-
-
 
           validateOnChange={false}
           validateOnBlur={false}
@@ -280,13 +329,19 @@ const QuyenGopManagement = (props) => {
                      Ngày bắt đầu:
                   </Col>
                   <Col>
-                    <FastField
-                      bsSize="large"
-                      type="date"
-                      name="start"
-                      placeholder="Ngày bắt đầu"
-                      component={ReactstrapInput}
-                    />
+                  <FastField bsSize="large"  name="start"  placeholder="Ngày bắt đầu">
+                    {
+                        ({ field, form, meta }) => {
+                              return(
+                                  <div>
+                                      <label htmlFor="start">Ngày bắt đầu</label>
+                                      <input type="Date" {...field}/>
+                                      {/* {meta.touched && meta.error && <div>{meta.error}</div>} */}
+                                  </div>
+                              );
+                          }
+                    }
+                    </FastField>
                   </Col>
                 </Row>
 
@@ -312,13 +367,25 @@ const QuyenGopManagement = (props) => {
                      Image1 CT:
                   </Col>
                   <Col>
-                    <FastField
-                      bsSize="large"
-                      type="file"
-                      name="image1"
-                      placeholder="image1"
-                      component={ReactstrapInput}
+                   <img
+                      src={previewUrl1 ? previewUrl1 : defaultImage}
+                      width="128"
+                      height="128"
                     />
+                    <br/>
+                    <FastField bsSize="large"  name="image1"  placeholder="image1">
+                    {
+                        ({ field, form, meta }) => {
+                              return(
+                                  <div>
+                                      <label htmlFor="image1">Image1 : </label>
+                                      <input type="File" {...field} onChange={SetImage1}/>
+                                      {/* {meta.touched && meta.error && <div>{meta.error}</div>} */}
+                                  </div>
+                              );
+                          }
+                    }
+                    </FastField>
                   </Col>
                 </Row>
 
@@ -328,29 +395,52 @@ const QuyenGopManagement = (props) => {
                      Image2 CT:
                   </Col>
                   <Col>
-                    <FastField
-                      bsSize="large"
-                      type="file"
-                      name="image2"
-                      placeholder="image2"
-                      component={ReactstrapInput}
+                    <img
+                      src={previewUrl2 ? previewUrl2 : defaultImage}
+                      width="128"
+                      height="128"
                     />
+                    <br/>
+                    <FastField  bsSize="large"  name="image2"  placeholder="image2">
+                    {
+                        ({ field, form, meta }) => {
+                              return(
+                                  <div>
+                                      <input type="File" {...field} onChange={SetImage2}/>
+                                      {/* {meta.touched && meta.error && <div>{meta.error}</div>} */}
+                                  </div>
+                              );
+                          }
+                    }
+                    </FastField>
                   </Col>
                 </Row>
 
                    {/* image3 của CT Quyên Góp */}
                    <Row style={{ alignItems: "center" }}>
                   <Col xs="auto">
-                     Image1 CT:
+                     Image3 CT:
                   </Col>
                   <Col>
-                    <FastField
-                      bsSize="large"
-                      type="file"
-                      name="image3"
-                      placeholder="image3"
-                      component={ReactstrapInput}
+                  <img
+                      src={previewUrl3 ? previewUrl3 : defaultImage}
+                      width="128"
+                      height="128"
                     />
+                    <br/>
+                  <FastField  bsSize="large"  name="image3"  placeholder="image3">
+                    {
+                        ({ field, form, meta }) => {
+                              return(
+                                  <div>
+                                      <label htmlFor="image3">Image3 : </label>
+                                      <input type="File" {...field} onChange={SetImage3}/>
+                                      {/* {meta.touched && meta.error && <div>{meta.error}</div>} */}
+                                  </div>
+                              );
+                          }
+                    }
+                    </FastField>
                   </Col>
                 </Row>
 
@@ -377,13 +467,27 @@ const QuyenGopManagement = (props) => {
                      Ảnh Bank1:
                   </Col>
                   <Col>
-                    <FastField
-                      bsSize="large"
-                      type="file"
-                      name="imageBank1"
-                      placeholder="imageBank1"
-                      component={ReactstrapInput}
+                  <img
+              
+                      src={previewUrl4 ? previewUrl4 : defaultImage}
+                    
+                      width="128"
+                      height="128"
                     />
+                    <br/>
+                  <FastField  bsSize="large"  name="imageBank1"  placeholder="imageBank1">
+                    {
+                        ({ field, form, meta }) => {
+                              return(
+                                  <div>
+                                      <label htmlFor="imageBank1">Image Bank1 : </label>
+                                      <input type="File" {...field} onChange={SetImageBank1}/>
+                                      {/* {meta.touched && meta.error && <div>{meta.error}</div>} */}
+                                  </div>
+                              );
+                          }
+                    }
+                    </FastField>
                   </Col>
                 </Row>
 
@@ -425,13 +529,25 @@ const QuyenGopManagement = (props) => {
                      Ảnh Bank2:
                   </Col>
                   <Col>
-                    <FastField
-                      bsSize="large"
-                      type="file"
-                      name="imageBank2"
-                      placeholder="imageBank2"
-                      component={ReactstrapInput}
+                  <img
+                      src={previewUrl5 ? previewUrl5 : defaultImage}
+                      width="128"
+                      height="128"
                     />
+                    <br/>
+                  <FastField  bsSize="large"  name="imageBank2"  placeholder="imageBank2">
+                    {
+                        ({ field, form, meta }) => {
+                              return(
+                                  <div>
+                                      <label htmlFor="imageBank2">Image Bank 2 : </label>
+                                      <input type="File" {...field} onChange={SetImageBank2}/>
+                                      {/* {meta.touched && meta.error && <div>{meta.error}</div>} */}
+                                  </div>
+                              );
+                          }
+                    }
+                    </FastField>
                   </Col>
                 </Row>
 
@@ -503,6 +619,6 @@ const mapGlobalStateToProps = state => {
   };
 };
 
-export default connect(mapGlobalStateToProps, { getListQuyenGopManagementAction })(QuyenGopManagement);
+export default connect(mapGlobalStateToProps, { getListQuyenGopManagementAction })(React.memo(QuyenGopManagement));
 
 

@@ -1,6 +1,7 @@
 package com.vti.controller;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -76,8 +77,8 @@ public class CtQuyenGopController {
 
 	@PostMapping()
 	public ResponseEntity<?> createCtQuyenGop(@RequestParam("name") String name ,
-			@RequestParam("start") Date start , @RequestParam("end") Date end,
-			@RequestParam("discrip") String discrip , @RequestParam("tongTien") int tongTien
+			@RequestParam("start") String start , @RequestParam("end") String end,
+			@RequestParam("discrip") String discrip
 
 			// image quyen gop
 			,@RequestParam("image1") MultipartFile image1 ,@RequestParam("image2") MultipartFile image2
@@ -89,14 +90,13 @@ public class CtQuyenGopController {
 			 @RequestParam("bankName2") String bankName2,@RequestParam("imageBank2") MultipartFile imageBank2 ,
 			 @RequestParam("stk2") String stk2
 
-			) throws IOException{
+			) throws IOException, ParseException{
 		
 		CtQuyenGopDtoCreate dto = new CtQuyenGopDtoCreate();
 		dto.setName(name);
 		dto.setStart(start);
 		dto.setEnd(end);
-		dto.setDiscription(discrip);
-		dto.setTongTien(tongTien);
+		dto.setDiscription(discrip);	
 		CtQuyenGop ct = dto.toCtQuyenGop();
 		
 		service.createQuyenGop(ct);
