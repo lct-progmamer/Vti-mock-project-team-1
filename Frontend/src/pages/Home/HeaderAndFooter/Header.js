@@ -1,8 +1,58 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
-
+import React, { useEffect  } from "react";
+import { Link , useHistory } from "react-router-dom";
+import storage from "../../../Storage/Storage";
+import avatar1 from "../../../assets/img/avatars/avatar.jpg";
+import UserApi from "../../../api/UserApi";
+import { useState } from "react";
+import { useSelector} from 'react-redux';
 const Header = () =>{
+
+    const history = useHistory();
+    
+    
+    const token = storage.getToken();
+
+    // const imageUrl = useSelector((state) => state.UserLoginInfo.userInfo);
+
+    // console.log(imageUrl);
+    const toLogin = () => {
+        history.push('/auth/sign-in');
+    }
+
+    const toSignIn =  () => {
+        history.push('/auth/sign-up');
+    }
+
+    const LogOut = () => {
+       storage.RemoveInforUser();
+       history.push('/auth/sign-in');
+       console.log(token);
+    }
+
+
+    const ButtonBeforeLogin = () =>{
+        return(
+            <div className="text-end">
+                <button type="button" className="btn btn-outline-light me-2" onClick={toLogin}>Login</button>
+                <button type="button" className="btn btn-warning" onClick={toSignIn}>Sign-up</button>
+            </div>
+        );
+    }
+
+    const ButtonAfterLogin = () =>{
+        return(
+            <>
+            {/* imageUrl ? `http://127.0.0.1:8887/${imageUrl}` : */}
+                <img src={ avatar1} className="rounded-circle img-responsive mt-2 mr-3"
+                  width="40"
+                  height="40"/>
+                <button type="button" className="btn btn-warning me-2" onClick={LogOut}>Logout</button>
+            </>
+        );
+    }
+
+
+
     return (
         <>
             <header className="p-3 bg-dark">
@@ -15,11 +65,11 @@ const Header = () =>{
                         <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                         <input type="search" className="form-control form-control-dark" placeholder="Search..." aria-label="Search" />
                         </form>
-
-                        <div className="text-end">
-                        <button type="button" className="btn btn-outline-light me-2">Login</button>
-                        <button type="button" className="btn btn-warning">Sign-up</button>
-                        </div>
+                        <>
+                        {
+                            token ? <ButtonAfterLogin /> : <ButtonBeforeLogin/>
+                        }
+                        </>
                     </div>
                 </div>
             </header>

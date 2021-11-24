@@ -105,6 +105,7 @@ const SignIn = (props) => {
                 storage.setUserInfo(
                   result.userName,
                   result.email,
+                  result.sdt,
                   result.firstName,
                   result.lastName,
                   result.role,
@@ -115,13 +116,19 @@ const SignIn = (props) => {
                 props.setUserLoginInfo(
                   result.userName,
                   result.email,
+                  result.sdt,
                   result.firstName,
                   result.lastName,
                   result.role,
-                  result.status)
+                  result.status,
+                )
 
                 // redirect to home page
-                props.history.push("/dashboard/default");
+
+                if(result.role === "Admin")
+                  props.history.push('/ctquyengopmanagement');
+                else if(result.role === "Employee")
+                  props.history.push("/");
               }
 
             } catch (error) {
@@ -129,8 +136,9 @@ const SignIn = (props) => {
                 // show error notification
                 showErrorNotification("Login Fail!", "Wrong Username or Password!")
               } else {
-                // redirect page error server
-                props.history.push("/auth/500");
+                
+                
+                  props.history.push("/auth/500");
               }
             }
           }
@@ -196,6 +204,9 @@ const SignIn = (props) => {
                   </Button>
                   </div>
                 </Form>
+              </div>
+              <div>    
+                    <Link to={`/`}><Button className="btn-back" color="warning">Quay Lại</Button></Link>
               </div>
             </CardBody>
           </Card>

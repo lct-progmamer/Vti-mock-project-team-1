@@ -30,7 +30,10 @@ public class User implements Serializable {
 
 	@Column(name = "`email`", nullable = false, length = 50, unique = true)
 	private String email;
-
+	
+	@Column(name = "`sdt`" , nullable = false , length = 12 , unique = true)
+	private String sdt;
+	
 	@Column(name = "`password`", nullable = false, length = 800)
 	private String password;
 
@@ -58,18 +61,17 @@ public class User implements Serializable {
 	private List<UserQuyenGop> cts;
 	
 	
-	
 
-	public User(String userName, String email, String password, String firstName, String lastName) {
+
+	public User(String userName, String email, String sdt, String password, String firstName, String lastName) {
+		super();
 		this.userName = userName;
 		this.email = email;
+		this.sdt = sdt;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
-
-	
-	
 
 	public User() {
 	}
@@ -126,8 +128,16 @@ public class User implements Serializable {
 		this.avatarUrl = avatarUrl;
 	}
 
+	
 
 
+	public String getSdt() {
+		return sdt;
+	}
+
+	public void setSdt(String sdt) {
+		this.sdt = sdt;
+	}
 
 	public List<UserQuyenGop> getCts() {
 		return cts;

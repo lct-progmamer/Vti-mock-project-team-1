@@ -77,7 +77,7 @@ public class CtQuyenGopController {
 
 	@PostMapping()
 	public ResponseEntity<?> createCtQuyenGop(@RequestParam("name") String name ,
-			@RequestParam("start") String start , @RequestParam("end") String end,
+			@RequestParam("start")  String start , @RequestParam("end") String end,
 			@RequestParam("discrip") String discrip
 
 			// image quyen gop

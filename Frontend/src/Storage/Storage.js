@@ -36,19 +36,49 @@ const getToken = () => {
     return getItem('token');
 };
 
-const setUserInfo = (userName, email, firstName, lastName, role, status) => {
+const setUserInfo = (userName, email, sdt , firstName, lastName, role, status) => {
     setItem('userName', userName);
     setItem('email', email);
+    setItem('sdt',sdt);
     setItem('firstName', firstName);
     setItem('lastName', lastName);
     setItem('role', role);
     setItem('status', status);
 }
 
+const RemoveInforUser = () =>{
+    if(isRememberMe()){
+        setRememberMe(false);
+        localStorage.removeItem('token');
+        localStorage.removeItem('userName');
+        localStorage.removeItem('email');
+        localStorage.removeItem('sdt');
+        localStorage.removeItem('firstName');
+        localStorage.removeItem('lastName');
+        localStorage.removeItem('role');
+        localStorage.removeItem('status');
+    }
+    else
+    {
+        sessionStorage.removeItem('token');
+        sessionStorage.removeItem('userName');
+        sessionStorage.removeItem('email');
+        sessionStorage.removeItem('sdt');
+        sessionStorage.removeItem('firstName');
+        sessionStorage.removeItem('lastName');
+        sessionStorage.removeItem('role');
+        sessionStorage.removeItem('status');
+    }
+}
+
+
+
+
 const getUserInfo = () => {
     return {
         'userName': getItem('userName'),
         'email': getItem('email'),
+        'sdt' : getItem('sdt'),
         'firstName': getItem('firstName'),
         'lastName': getItem('lastName'),
         'role': getItem('role'),
@@ -57,5 +87,5 @@ const getUserInfo = () => {
 }
 
 // export
-const storage = { isRememberMe, setRememberMe, setToken, getToken, setUserInfo, getUserInfo }
+const storage = { isRememberMe,RemoveInforUser, setRememberMe, setToken, getToken, setUserInfo, getUserInfo }
 export default storage;

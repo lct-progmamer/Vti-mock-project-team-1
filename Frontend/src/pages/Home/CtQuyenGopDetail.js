@@ -96,7 +96,7 @@ const CtQuyenGopDetail = () => {
                         <div className="card-dongtien">
                             {
                                 others?.map((items) => {
-                                    if(items.id != id)
+                                    if(items.id !== id)
                                     {
                                         return (
                                             <Card className="other">
