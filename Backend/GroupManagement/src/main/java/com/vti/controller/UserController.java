@@ -1,8 +1,11 @@
 package com.vti.controller;
 
+import java.io.IOException;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -16,11 +19,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.vti.dto.ChangePublicProfileDTO;
 import com.vti.dto.ProfileDTO;
 import com.vti.dto.UserDTO;
 import com.vti.entity.User;
+import com.vti.service.IFileService;
 import com.vti.service.IUserService;
 
 @CrossOrigin("*")
@@ -31,6 +36,9 @@ public class UserController {
 
 	@Autowired
 	private IUserService userService;
+	
+	@Autowired
+	private IFileService fileService;
 
 	@GetMapping(value = "/email/{email}")
 	public ResponseEntity<?> existsUserByEmail(@PathVariable(name = "email") String email) {
@@ -51,7 +59,28 @@ public class UserController {
 	}
 
 	@PostMapping()
-	public ResponseEntity<?> createUser(@Valid @RequestBody UserDTO dto) {
+	public ResponseEntity<?> createUser(@RequestParam("userName") String userName , 
+			@RequestParam("email") String email , @RequestParam("sdt") String sdt,
+			@RequestParam("password") String password , @RequestParam("firstName") String firstName,
+			@RequestParam("lastName") String lastName , @RequestParam(value = "avatar" , required = false) MultipartFile avatar
+			
+			) throws IOException {
+		
+		String avatarUrl = "";
+		if(avatar == null)
+			avatarUrl = "defaultAvatar.png";
+		else
+			avatarUrl = fileService.uploadImage(avatar);
+		
+		UserDTO dto = new UserDTO();
+		dto.setUserName(userName);
+		dto.setEmail(email);
+		dto.setSdt(sdt);
+		dto.setPassword(password);
+		dto.setFirstName(firstName);
+		dto.setLastName(lastName);
+		dto.setAvatarUrl(avatarUrl);
+		
 		// create User
 		userService.createUser(dto.toEntity());
 

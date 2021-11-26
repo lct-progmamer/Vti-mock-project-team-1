@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS `User` (
 	`lastName` 		NVARCHAR(50) NOT NULL,
     `role` 			ENUM('Admin','Employee','Manager') DEFAULT 'Employee',
 	`status`		TINYINT DEFAULT 0, -- 0: Not Active, 1: Active
-    `avatarUrl`		VARCHAR(500)	
+    `avatarUrl`		VARCHAR(500) DEFAULT('defaultAvatar.png')
 );
 
 -- Create table Registration_User_Token
@@ -104,7 +104,7 @@ VALUE				('hanh.havan@vti','0368948374',	'hanhhanoi1999@gmail.com',		'$2a$10$W2n
 					('mailanvti','0986958378','mailan123@gmail.com', 			'$2a$10$W2neF9.6Agi6kAKVq8q3fec5dHW8KUA.b0VSIGdIZyUravfLpyIFi',		'Nguyễn',		'Thị Trinh',		0, 		'Manager' 	,		null				),
 					('tuanhungvti','0979689567','tuanhung@gmail.com', 			'$2a$10$W2neF9.6Agi6kAKVq8q3fec5dHW8KUA.b0VSIGdIZyUravfLpyIFi',		'Vũ'	,		'Tuấn Hưng',		0, 		'Employee'	,		null				),
 					('xuanmaivti', '0978690545','xuanmai12@gmail.com', 			'$2a$10$W2neF9.6Agi6kAKVq8q3fec5dHW8KUA.b0VSIGdIZyUravfLpyIFi',		'Nguyễn',		'Xuân Mai',			0, 		'Employee'	,		null				),
-                    ('duynn03',	'0978689432','duynn03@gmail.com', 			'$2a$10$W2neF9.6Agi6kAKVq8q3fec5dHW8KUA.b0VSIGdIZyUravfLpyIFi',		'Nguyễn',		'Duy',				1, 		'Employee'	,		'userImage.jpg'	);
+                    ('duynn03',	'0978689432','duynn03@gmail.com', 			'$2a$10$W2neF9.6Agi6kAKVq8q3fec5dHW8KUA.b0VSIGdIZyUravfLpyIFi',		'Nguyễn',		'Duy',				1, 		'Employee'	,	'userImage.jpg'	);
                     
 
 INSERT INTO 	`CT_QUYEN_GOP`(Ct_name , Discription_Quyen_gop , Date_Start , Date_End , Tong_tien_quyen_gop , `Status`)

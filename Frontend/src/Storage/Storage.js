@@ -36,14 +36,15 @@ const getToken = () => {
     return getItem('token');
 };
 
-const setUserInfo = (userName, email, sdt , firstName, lastName, role, status) => {
+const setUserInfo = (userName, email, sdt , firstName, lastName, role, status , avatarUrl) => {
     setItem('userName', userName);
     setItem('email', email);
     setItem('sdt',sdt);
     setItem('firstName', firstName);
     setItem('lastName', lastName);
     setItem('role', role);
-    setItem('status', status);
+    setItem('status', status)
+    setItem('avatarUrl' , avatarUrl);
 }
 
 const RemoveInforUser = () =>{
@@ -57,6 +58,7 @@ const RemoveInforUser = () =>{
         localStorage.removeItem('lastName');
         localStorage.removeItem('role');
         localStorage.removeItem('status');
+        localStorage.removeItem('avatarUrl');
     }
     else
     {
@@ -68,6 +70,7 @@ const RemoveInforUser = () =>{
         sessionStorage.removeItem('lastName');
         sessionStorage.removeItem('role');
         sessionStorage.removeItem('status');
+        sessionStorage.removeItem('avatarUrl');
     }
 }
 
@@ -82,7 +85,8 @@ const getUserInfo = () => {
         'firstName': getItem('firstName'),
         'lastName': getItem('lastName'),
         'role': getItem('role'),
-        'status': getItem('status')
+        'status': getItem('status'),
+        'avatarUrl' : getItem('avatarUrl')
     };
 }
 

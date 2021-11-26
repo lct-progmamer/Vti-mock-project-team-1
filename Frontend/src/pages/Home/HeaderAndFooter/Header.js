@@ -12,9 +12,8 @@ const Header = () =>{
     
     const token = storage.getToken();
 
-    // const imageUrl = useSelector((state) => state.UserLoginInfo.userInfo);
+    const imageUrl = storage.getUserInfo().avatarUrl;
 
-    // console.log(imageUrl);
     const toLogin = () => {
         history.push('/auth/sign-in');
     }
@@ -25,8 +24,7 @@ const Header = () =>{
 
     const LogOut = () => {
        storage.RemoveInforUser();
-       history.push('/auth/sign-in');
-       console.log(token);
+       history.push('/');
     }
 
 
@@ -42,8 +40,8 @@ const Header = () =>{
     const ButtonAfterLogin = () =>{
         return(
             <>
-            {/* imageUrl ? `http://127.0.0.1:8887/${imageUrl}` : */}
-                <img src={ avatar1} className="rounded-circle img-responsive mt-2 mr-3"
+            {/*  : */}
+                <img src={ imageUrl ? `http://127.0.0.1:8887/${imageUrl}` : avatar1} className="rounded-circle img-responsive mt-2 mr-3"
                   width="40"
                   height="40"/>
                 <button type="button" className="btn btn-warning me-2" onClick={LogOut}>Logout</button>

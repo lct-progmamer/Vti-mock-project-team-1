@@ -53,7 +53,7 @@ public class User implements Serializable {
 	@Column(name = "`status`", nullable = false)
 	private UserStatus status = UserStatus.NOT_ACTIVE;
 
-	@Column(name = "avatarUrl")
+	@Column(name = "avatarUrl" , nullable = true , columnDefinition = "VARCHAR(500) default 'defaultAvatar.png'")
 	private String avatarUrl;	
 	
 	
@@ -63,7 +63,7 @@ public class User implements Serializable {
 	
 
 
-	public User(String userName, String email, String sdt, String password, String firstName, String lastName) {
+	public User(String userName, String email, String sdt, String password, String firstName, String lastName , String avatarUrl) {
 		super();
 		this.userName = userName;
 		this.email = email;
@@ -71,6 +71,7 @@ public class User implements Serializable {
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.avatarUrl = avatarUrl;
 	}
 
 	public User() {

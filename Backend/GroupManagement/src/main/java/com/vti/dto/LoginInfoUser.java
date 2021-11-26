@@ -18,6 +18,8 @@ public class LoginInfoUser {
 
 	private String status;
 	
+	private String avatarUrl;
+	
 	
 	
 
@@ -26,7 +28,7 @@ public class LoginInfoUser {
 	}
 
 	public LoginInfoUser(String token, String userName, String sdt, String email, String firstName, String lastName,
-			String role, String status) {
+			String role, String status , String avatarUrl) {
 		super();
 		this.token = token;
 		this.userName = userName;
@@ -36,6 +38,7 @@ public class LoginInfoUser {
 		this.lastName = lastName;
 		this.role = role;
 		this.status = status;
+		this.avatarUrl = avatarUrl;
 	}
 
 	public String getToken() {
@@ -68,6 +71,10 @@ public class LoginInfoUser {
 
 	public String getSdt() {
 		return sdt;
+	}
+
+	public String getAvatarUrl() {
+		return avatarUrl;
 	}
 
 	

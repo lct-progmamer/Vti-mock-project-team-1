@@ -18,6 +18,9 @@ public class UserDTO {
 
 	private String sdt;
 	
+	private String avatarUrl;
+	
+	
 	public UserDTO() {
 	}
 
@@ -68,8 +71,18 @@ public class UserDTO {
 	public void setSdt(String sdt) {
 		this.sdt = sdt;
 	}
+	
+	
+
+	public String getAvatarUrl() {
+		return avatarUrl;
+	}
+
+	public void setAvatarUrl(String avatarUrl) {
+		this.avatarUrl = avatarUrl;
+	}
 
 	public User toEntity() {
-		return new User(userName, email ,sdt, password, firstName, lastName);
+		return new User(userName, email ,sdt, password, firstName, lastName , avatarUrl);
 	}
 }

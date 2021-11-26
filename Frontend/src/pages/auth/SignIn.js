@@ -109,7 +109,8 @@ const SignIn = (props) => {
                   result.firstName,
                   result.lastName,
                   result.role,
-                  result.status);
+                  result.status,
+                  result.avatarUrl);
 
                 // save token & UserInfo to redux
                 props.setTokenInfo(result.token);
@@ -121,6 +122,7 @@ const SignIn = (props) => {
                   result.lastName,
                   result.role,
                   result.status,
+                  result.avatarUrl
                 )
 
                 // redirect to home page

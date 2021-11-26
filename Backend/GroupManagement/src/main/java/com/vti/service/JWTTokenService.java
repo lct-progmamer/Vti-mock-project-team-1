@@ -41,8 +41,9 @@ public class JWTTokenService {
         		user.getEmail(), 
         		user.getFirstName(), 
         		user.getLastName(),
-        		user.getRole(), 
-        		user.getStatus().toString());
+        		user.getRole(),
+        		user.getStatus().toString(),
+        		user.getAvatarUrl());
         
         // convert object to json
         ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
