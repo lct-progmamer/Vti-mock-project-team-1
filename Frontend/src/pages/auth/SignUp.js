@@ -15,6 +15,8 @@ import { ReactstrapInput } from "reactstrap-formik";
 import * as Yup from 'yup';
 import UserApi from "../../api/UserApi";
 import { withRouter } from "react-router-dom";
+import avatar from "../../assets/img/avatars/avatar.jpg";
+import {useRef} from "react";
 
 const SignUp = (props) => {
 
@@ -23,6 +25,13 @@ const SignUp = (props) => {
   const [email, setEmail] = useState("");
 
   const [isDisableResendButton, setDisableResendButton] = useState(false);
+
+  const [previewAvatarUrl, setPreviewAvatarUrl] = useState();
+
+  const [AvatarFile, setAvatarFile] = useState();
+
+  const avatarInput = useRef(null);
+
 
   const resendEmailToActiveAccount = async () => {
     setDisableResendButton(true);
@@ -33,6 +42,21 @@ const SignUp = (props) => {
   const redirectToLogin = () => {
     props.history.push("/auth/sign-in");
   }
+
+  const onChangeAvatarInput = (e) => {
+    // Assuming only image
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.onloadend = (e) => {
+      setPreviewAvatarUrl(reader.result);
+      setAvatarFile(file);
+    };
+  };
+
+
+
 
   return (
     <>
@@ -49,6 +73,7 @@ const SignUp = (props) => {
             firstname: '',
             lastname: '',
             username: '',
+            sdt : '',
             email: '',
             password: '',
             confirmPassword: ''
@@ -73,6 +98,9 @@ const SignUp = (props) => {
                 const isExists = await UserApi.existsByUsername(username);
                 return !isExists;
               }),
+            phoneNumber : Yup.string()
+              .required('Thông tin này là bắt buộc')
+              .matches(/^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/ , 'Đây không phải là số điện thoại'),
 
             email: Yup.string()
               .email('Invalid email address')
@@ -107,9 +135,11 @@ const SignUp = (props) => {
               await UserApi.create(
                 values.firstname,
                 values.lastname,
+                values.sdt,
                 values.username,
                 values.email,
-                values.password
+                values.password,
+                AvatarFile
               );
 
               // message
@@ -129,6 +159,22 @@ const SignUp = (props) => {
           <Card>
             <CardBody>
               <div className="m-sm-4">
+                <div className="text-center">
+                  <img
+                    src={previewAvatarUrl ? previewAvatarUrl : avatar}
+                    alt="Chris Wood"
+                    className="img-fluid rounded-circle"
+                    width="132"
+                    height="132"
+                    onClick={() => avatarInput.current.click()}
+                  />
+                  <input
+                    type='file'
+                    id='avatarInput'
+                    ref={avatarInput}
+                    onChange={onChangeAvatarInput}
+                    style={{ display: 'none' }} />
+                </div>
                 <Form>
 
                   <FormGroup>
@@ -152,7 +198,16 @@ const SignUp = (props) => {
                       component={ReactstrapInput}
                     />
                   </FormGroup>
-
+                  <FormGroup>
+                    <FastField
+                      label="Nhập Số Điện Thoại"
+                      type="text"
+                      bsSize="lg"
+                      name="phoneNumber"
+                      placeholder="SDT"
+                      component={ReactstrapInput}
+                    />
+                  </FormGroup>
                   <FormGroup>
                     <FastField
                       label="Username"
@@ -200,7 +255,7 @@ const SignUp = (props) => {
                   <div className="text-center mt-3">
                     <Button type='submit' color="primary" size="lg" disabled={isSubmitting}>
                       Sign up
-                </Button>
+                    </Button>
                   </div>
                 </Form>
               </div>

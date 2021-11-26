@@ -1,4 +1,5 @@
 import Api from './Api';
+import FormData from 'form-data';
 
 const url = "/users";
 
@@ -10,15 +11,17 @@ const existsByUsername = (username) => {
     return Api.get(`${url}/userName/${username}`);
 };
 
-const create = (firstname, lastname, username, email, password) => {
+const create = (firstname, lastname,sdt ,  username, email, password , avatar) => {
 
-    const body = {
-        firstName: firstname,
-        lastName: lastname,
-        userName: username,
-        email: email,
-        password: password
-    }
+    const body = new FormData();
+    body.append('userName' , username);
+    body.append('firstName' , firstname);
+    body.append('lastName' , lastname);
+    body.append('sdt' , sdt);
+    body.append('email' , email);
+    body.append('password' , password);
+    body.append('avatar' , avatar);
+    
 
     return Api.post(url, body);
 };

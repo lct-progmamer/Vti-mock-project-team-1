@@ -68,11 +68,11 @@ public class UserDTO {
 		return sdt;
 	}
 
+	
+
 	public void setSdt(String sdt) {
 		this.sdt = sdt;
 	}
-	
-	
 
 	public String getAvatarUrl() {
 		return avatarUrl;
