@@ -6,21 +6,8 @@ import { getlistCtQuyenGopAction } from '../../../redux/actions/CtQuyenGopAction
 import { selectListCtQuyenGop } from '../../../redux/selectors/CtQuyenGopSelector';
 import Carousel from 'nuka-carousel';
 import api from "../../../api/CtQuyenGopApi";
-import {
-    Button,
-    Card,
-    CardBody,
-    Col,
-    Container,
-    Row,
-    Modal,
-    ModalBody,
-    ModalFooter,
-    ModalHeader,
-} from "reactstrap";
+import {Button} from "reactstrap";
 import { useHistory } from "react-router";
-import { idea } from "react-syntax-highlighter/dist/esm/styles/hljs";
-
 
 
 

@@ -17,7 +17,7 @@ import UserApi from "../../api/UserApi";
 import { withRouter } from "react-router-dom";
 import avatar from "../../assets/img/avatars/avatar.jpg";
 import {useRef} from "react";
-
+import "../Home/CtQuyenGopCss.scss";
 const SignUp = (props) => {
 
   const [isOpenModal, setOpenModal] = useState(false);
@@ -164,10 +164,12 @@ const SignUp = (props) => {
                     src={previewAvatarUrl ? previewAvatarUrl : avatar}
                     alt="Chris Wood"
                     className="img-fluid rounded-circle"
+                    id="avatar"
                     width="132"
                     height="132"
                     onClick={() => avatarInput.current.click()}
                   />
+                  <h5>Đổi Avatar</h5>
                   <input
                     type='file'
                     id='avatarInput'
